@@ -65,7 +65,11 @@ Second, forwards into the impact. The impacts is ultimately what matters but als
 
 ## Reading List
 
-*Coming soon*
+See Zotero bibliography: https://www.zotero.org/groups/1488090/life-itself/collections/XA8U7WGT
+
+* [Sustainable Energy without the Hot Air](./mckay-without-the-hot-air.md)
+* [Project Drawdown](https://projectdrawdown.org/) - see also https://github.com/datasets/awesome-data/issues/329
+* [IPCC - Special Report - Global Warming of 1.5 ºC](https://www.ipcc.ch/sr15/)
 
 ## Other work
 
@@ -75,3 +79,40 @@ Second, forwards into the impact. The impacts is ultimately what matters but als
 [cop21]: http://cop21.okfnlabs.org/
 [climate-talks]: https://github.com/rgrp/climate-negotiations
 
+
+## TODO
+
+* Base framework for understanding climate stuff.
+  * Framework = sink/source
+  * Framework for effects
+  * Framework for overall question = an issue tree 
+* How efficient could solar get? (Why? We can calculate amount of energy arriving from sun pretty well and combining that with solar efficiency tells us how energy we can obtain per m2 and hence how much area we need to obtain X amount of energy production)
+  * What does efficiency mean? There is rate efficiency and actual 
+  * McKay thought 10% was good. today in 2020 we are seeing things in 15-20% range
+  * See https://en.wikipedia.org/wiki/Solar_cell_efficiency. Answer for single layer voltaics is theoretical limit is Shockley-Queiseer limit of ~33%. that is theoretical and given temperature, dust etc my guess is "real" efficiency is going to quite a bit lower so actual "real" efficiency of 20% would be good (?)
+* how much money is spent on techno stuff (e.g. direct air capture - $100m alone with XPrize funded by Musk) vs social change e.g. better education for women?
+
+### Data
+
+* Solar capacity installed per year so that we know how fast we are making progress on supply in this area
+  * Capacity (total and installed)
+  * Supply (TWh or millions of KwH)
+  * One answer is here: https://www.iea.org/reports/solar-pv.
+
+    | Year | Generation (TWh) | % of total energy |
+    |--|--|
+    |2008|12|
+    |2009|20|
+    |2010|32|
+    |2011|63|
+    |2012|99|
+    |2013|139|
+    |2014|190|
+    |2015|251|
+    |2016|329|
+    |2017|444|
+    |2018|585|
+    |2019|720| 2.7 |
+
+* Energy demand (i.e. use) per person per country with breakdown if possible
+* Wind capacity etc
