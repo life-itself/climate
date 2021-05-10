@@ -1,3 +1,9 @@
+# The meta discussion vs the specific solutions discussions e.g. on carbon pricing / emissions trading vs electrifying transport 2021-05-09 ~rufus
+
+A lot of climate mitigation/decarbonisation debates focused on particular activities. For example, Project Drawdown focuses on specific solutions in different ages e.g. transport, population etc. Why doesn't this project include somthing like carbon pricing which would be a meta solution affecting all areas?
+
+it leads to a weird disjunction in the discusison where carbon pricing efforts don't even show up on drawdown's list.
+
 # The Techno-solutionists have already given up on (sufficient) mitigation and that justifies yet more tech ... 2021-05-09 
 
 > Mitigation Alone Not Sufficient: Eliminating humanity’s ongoing emissions of Carbon Dioxide will not occur in a timeframe that avoids dangerous climate change and unacceptable impacts on humans and the biosphere

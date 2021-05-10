@@ -70,6 +70,15 @@ See Zotero bibliography: https://www.zotero.org/groups/1488090/life-itself/colle
 * [Sustainable Energy without the Hot Air](./mckay-without-the-hot-air.md)
 * [Project Drawdown](https://projectdrawdown.org/) - see also https://github.com/datasets/awesome-data/issues/329
 * [IPCC - Special Report - Global Warming of 1.5 ºC](https://www.ipcc.ch/sr15/)
+* https://www.unep.org/interactive/emissions-gap-report/2020/ - basically things are not looking good!
+
+  > The world is still heading for a catastrophic temperature rise in excess of 3°C this century – far beyond the Paris Agreement goals of limiting global warming to well below 2°C and pursuing 1.5°C."
+  >
+  > ...
+  >
+  > So far, action on a green fiscal recovery has been limited. Around one-quarter of G20 members have dedicated shares of their spending, up to 3 per cent of GDP, to low-carbon measures. For most others, spending has mostly been high-carbon or neutral.
+
+
 
 ## Other work
 
