@@ -1,7 +1,6 @@
-# Sustainable Energy without the Hot Air (2008) by David McKay
+# Sustainable Energy without the Hot Air (2008) by David Mackay
 
 Brilliant book, still a go-to for me.
-
 
 ## Useful corrections as of 2017 esp around solar efficiency
 
