@@ -6,8 +6,7 @@ https://carbon-price.com/wp-content/uploads/Global-Carbon-Pricing-June-2017.pdf
 
 Has following authors:
 
-* David JC MacKay was Chief Scientific Adviser to the UK Department of Energy
-* and Climate Change.
+* David JC MacKay was Chief Scientific Adviser to the UK Department of Energy and Climate Change.
 * Joseph E. Stiglitz is the 2001 Nobel Laureate in Economics
 * Jean Tirole is the 2014 Nobel Laureate in Economics
 * Martin L. Weitzman is Professor of Economics at Harvard University
