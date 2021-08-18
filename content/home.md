@@ -5,7 +5,9 @@ author: Rufus Pollock
 
 This project started out as a personal investigation into the climate crisis and what we can (and should) be doing about it. The aim was to document and share a path through this topic rather than to offer anything original.
 
-It is heavily inspired and influenced by David Mackay's [Sustainable Energy without the Hot Air](/sewtha/) which I read soon after it came out in 2008. This brilliant book is still a go-to despites its age (one hope here is that we may be able to help upgrade Mackay's work which he was unable to do due to his tragically early death from cancer).
+It is heavily inspired and influenced by David Mackay's [Sustainable Energy without the Hot Air](/sewtha/) which I read soon after it came out in 2008. This brilliant book is still a go-to despites its age.[^1]
+
+[^1]: Mackay was unable to update his book due to his tragically early death from cancer in 2016. One part of the effort here could be to help update his book.
 
 Particular inspiration for us are his factual approach and the "you only understand what you can create for yourself" mentality. Of course, this effort is much more modest in scope (and capacity). Nevertheless, we hope it proves of value.
 
