@@ -15,6 +15,7 @@ const components = {
 export default function Page({ children, source, frontMatter }) {
   return (
     <Layout title={frontMatter.title}>
+    <article className="prose mx-auto p-6">
       <header>
         <div className="mb-6">
           <h1>{frontMatter.title}</h1>
@@ -26,9 +27,10 @@ export default function Page({ children, source, frontMatter }) {
           )}
         </div>
       </header>
-      <main>
+      <section>
         <MDXRemote {...source} components={components} />
-      </main>
+      </section>
+    </article>
     </Layout>
   )
 }
