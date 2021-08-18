@@ -5,6 +5,10 @@ import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import Link from 'next/link'
 
 const navigation = [
+  { name: 'Overview', href: '/', current: false },
+  { name: 'Notes', href: '/notes/', current: false },
+  { name: 'Without the Hot Air', href: '/sewtha/', current: false },
+  { name: 'Carbon Pricing', href: '/carbon-pricing/', current: false },
 ]
 
 function classNames(...classes) {
@@ -33,7 +37,7 @@ export default function Nav() {
                 <div className="flex-shrink-0 flex items-center">
                   <Link href="/">
                     <a className="text-white">
-                      Climatology 🌍🔥
+                      Life Itself Climate Inquiry 🌍🔥
                     </a>
                   </Link>
                 </div>
