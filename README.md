@@ -24,3 +24,13 @@ The website is built in Next.JS using tailwind and MDX.
 ### Deployment
 
 We are deploying to github pages using Next.JS static build run by github actions.
+
+## Other work
+
+Other work we have done:
+
+* With Tommaso Venturini of KCL / Sciences Po we (Rufus Pollock)  built the [COP21 Treaty Texts website][cop21] in November / December 2015
+* With Tommaso Venturini of KCL / Sciences Po we worked on [analyzing climate negotations][climate-talks]
+
+[cop21]: http://cop21.okfnlabs.org/
+[climate-talks]: https://github.com/rgrp/climate-negotiations
