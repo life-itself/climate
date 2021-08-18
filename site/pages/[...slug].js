@@ -65,7 +65,7 @@ export const getStaticPaths = async () => {
   }
 }
 
-const POSTS_PATH = path.join(process.cwd(), '../')
+const POSTS_PATH = path.join(process.cwd(), '../content/')
 
-const DIR_EXCLUDES = ['node_modules', 'site', '.next', 'sandbox' ]
+const DIR_EXCLUDES = []
 
