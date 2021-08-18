@@ -67,7 +67,7 @@ Second, forwards into the impact. The impacts is ultimately what matters but als
 
 See Zotero bibliography: https://www.zotero.org/groups/1488090/life-itself/collections/XA8U7WGT
 
-* [Sustainable Energy without the Hot Air](./mckay-without-the-hot-air.md)
+* [Sustainable Energy without the Hot Air by David Mackay](/sewtha/) - Brilliant book, still a go-to even though published in 2008.
 * [Project Drawdown](https://projectdrawdown.org/) - see also https://github.com/datasets/awesome-data/issues/329
 * [IPCC - Special Report - Global Warming of 1.5 ºC](https://www.ipcc.ch/sr15/)
 * https://www.unep.org/interactive/emissions-gap-report/2020/ - basically things are not looking good!
@@ -77,7 +77,6 @@ See Zotero bibliography: https://www.zotero.org/groups/1488090/life-itself/colle
   > ...
   >
   > So far, action on a green fiscal recovery has been limited. Around one-quarter of G20 members have dedicated shares of their spending, up to 3 per cent of GDP, to low-carbon measures. For most others, spending has mostly been high-carbon or neutral.
-
 
 
 ## Other work

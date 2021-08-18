@@ -1,3 +1,7 @@
+---
+title: Carbon Pricing
+---
+
 Why global carbon pricing is the way to go:
 
 https://carbon-price.com - "Global Carbon Pricing" book with free PDF
