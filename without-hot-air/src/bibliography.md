@@ -296,7 +296,7 @@
   Low waste technology in pulp and paper industries. *Pure & Appl. Chem.*, 52:1999–2004. [<span class="websitetitle">www.iupac.org/publications/pac/1980/pdf/5208x1999.pdf</span>](http://www.iupac.org/publications/pac/1980/pdf/5208x1999.pdf).
   -  <span class="smallcaps"> Nuttall, W. J.</span> (2004).
   *Nuclear Renaissance*. Institute of Physics Publishing.
-  -  <span class="smallcaps"> {OECD</span> Nuclear Energy Agency}. (2006).
+  -  <span class="smallcaps"> OECD</span> Nuclear Energy Agency. (2006).
   *Forty Years of Uranium Resources, Production and Demand in perspective*. OECD Publishing. ISBN 9264028064. [<span class="websitetitle">books.google.com/books?id=HIT1o985uKYC</span>](http://books.google.com/books?id=HIT1o985uKYC).
   -  <span class="smallcaps"> Ongena, J.</span> and <span class="smallcaps"> Van Oost, G.</span> (2006).
   Energy for future centuries. Will fusion be an inexhaustible, safe and clean energy source? [<span class="websitetitle">www.fusie-energie.nl/artikelen/ongena.pdf</span>](http://www.fusie-energie.nl/artikelen/ongena.pdf).

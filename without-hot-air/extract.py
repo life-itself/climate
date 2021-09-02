@@ -146,6 +146,14 @@ def transform(file_string):
         # e.g. \[energy\]
         [r'\\\[', '['],
         [r'\\\]', ']'],
+
+        # special patches - this is for bibliography file
+        #-  <span class="smallcaps"> {OECD</span> Nuclear Energy Agency}. (2006).
+        # fix the {...} which breaks rendering of website as thinks it is regex
+        [r'{OECD</span> Nuclear Energy Agency}', 'OECD</span> Nuclear Energy Agency'],
+        # then fix smallcaps there in general
+        # NOT doing for now as useful to have this for author
+        # [r'<span class="smallcaps">([^<]*)</span>', r'\g<1>'],
     ]
 
     for regex in regexes:
@@ -204,6 +212,8 @@ Bjørn Lomborg’s *The Skeptical Environmentalist* (2001).
 <div class="caption2">
 
 [<span class="mark">\[3\]</span>](#ret03)*quote text here ...*
+
+-  <span class="smallcaps"> {OECD</span> Nuclear Energy Agency}. (2006).
 '''
 
     exp = '''# 1 Motivations
@@ -226,9 +236,11 @@ Bjørn Lomborg’s *The Skeptical Environmentalist* (2001).
 
 *The Revenge of Gaia: Why the earth is ﬁghting back – and how we can still save humanity.* James Lovelock (2006). © Allen Lane.
 
-"Wind or nuclear?", for example. ... to ﬁll the \[energy\] gap is living in an utter dream world and is, in my view, an enemy of the people." [^1]<span class="red"> \*</span>
+"Wind or nuclear?", for example. ... to ﬁll the [energy] gap is living in an utter dream world and is, in my view, an enemy of the people." [^1]<span class="red"> \*</span>
 
 [^3]: *quote text here ...*
+
+-  <span class="smallcaps"> OECD</span> Nuclear Energy Agency. (2006).
 '''
 
     out = transform(instring)
