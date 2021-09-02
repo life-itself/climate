@@ -1,6 +1,6 @@
 Life Itself's ongoing inquiry into the climate crisis 🌍🔥
 
-https://cliamte.lifeitself.us/
+https://climate.lifeitself.us/
 
 ## Layout
 
