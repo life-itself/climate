@@ -7,7 +7,7 @@ import Link from 'next/link'
 const navigation = [
   { name: 'Overview', href: '/', current: false },
   { name: 'Notes', href: '/notes/', current: false },
-  { name: 'Without the Hot Air', href: '/sewtha/', current: false },
+  { name: 'Without the Hot Air', href: '/without-hot-air/', current: false },
   { name: 'Carbon Pricing', href: '/carbon-pricing/', current: false },
 ]
 
