@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Restora";
+  src: url("/fonts/Restora/Restora.ttf");
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Restora";
+  src: url("/fonts/Restora/RestoraBold.ttf");
+  font-style: bold;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Restora";
+  src: url("/fonts/Restora/RestoraExtraLight.otf");
+  font-style: light;
+  font-display: swap;
+}
+
+/* FONTS */
+
+@layer base {
+  h1, h2, h3, h4, h5 {
+    @apply font-serif;
+  }
+}
+
+/* OTHERS */
+
+html {
+  scroll-behavior: smooth;
+}

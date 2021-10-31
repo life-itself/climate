@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import Script from 'next/script'
 import { useRouter } from 'next/router'
-import 'tailwindcss/tailwind.css'
 
+import '../styles/globals.css'
 import siteConfig from '../config/siteConfig.js'
 import * as gtag from '../lib/gtag'
 
