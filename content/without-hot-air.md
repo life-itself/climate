@@ -2,15 +2,15 @@
 title: Sustainable Energy without the Hot Air (Revised, Community Edition)
 ---
 
-David MacKay's *Sustainable Energy - Without the Hot Air* (http://withouthotair.com). **Preserved, updated, reusable.**
+David MacKay's *Sustainable Energy - Without the Hot Air* (http://withouthotair.com). **Reusable and revised.**
 
-More on [why we are creating this alternative, revised edition](#why-this-project).
+More on [why we are creating this version](#why-this-project).
 
 ![cover](/img/without-hot-air/cover.jpg)
 
 ## Table of Contents
 
-## Sustainable Energy without the Hot Air
+## Sustainable Energy without the Hot Air (2008 Edition)
 
 ***to those who will not have the benefit of two billion years' accumulated energy reserves***
 
@@ -78,7 +78,7 @@ More on [why we are creating this alternative, revised edition](#why-this-projec
 
 ## Why this project
 
-David tragically passed away in 2016. His wonderful book (and website) were first published in 2008. The material is still of great value. However, is has not been updated since publication and now won't be (at least by David). David made his book available in machine readable formats and licensed the book (semi-)openly meaning it can be modified and redistributed.
+David MacKay tragically passed away in 2016. His wonderful book (and website) were first published in 2008. The material is still of great value. However, is has not been updated since publication and now won't be (at least by David). David made his book available in machine readable formats and licensed the book (semi-)openly meaning it can be modified and redistributed.
 
 The book remains a go-to reference and extremely useful. However it is getting out of date -- e.g. solar situation in 2020 is dramatically different from a decade earlier.[^1] Its current format is not easily editable nor is in a repository where it can be collaboratively worked on. Finally, there is the risk the book and site could one day disappear.
 
