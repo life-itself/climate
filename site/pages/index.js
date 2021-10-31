@@ -25,8 +25,27 @@ export default function Home({ source, frontMatter }) {
         <p className="mt-3 text-2xl">
           Life Itself's ongoing inquiry into the climate crisis 🌍🔥 
         </p>
+        <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
+          <div className="rounded-md shadow">
+            <a
+              href="#overview"
+              className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-yellow-300 hover:bg-yellow-400 md:py-4 md:text-lg md:px-10"
+            >
+              Read More
+            </a>
+          </div>
+          <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+            <Link href="/without-hot-air/">
+              <a
+                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-yellow-300 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
+                >
+                Without the Hot Air
+              </a>
+            </Link>
+          </div>
+        </div> 
       </div>
-      <article className="prose mx-auto p-6">
+      <article id="overview" className="prose mx-auto p-6">
         <MDXRemote {...source} components={components} />
       </article>
     </Layout>
