@@ -5,7 +5,9 @@ author: Rufus Pollock
 
 This project started out as a personal investigation into the climate crisis and what we can (and should) be doing about it. The aim was to document and share a path through this topic rather than to offer anything original.
 
-It is heavily inspired and influenced by David Mackay's [Sustainable Energy without the Hot Air](/sewtha/) which I read soon after it came out in 2008. This brilliant book is still a go-to despites its age.[^1]
+It is heavily inspired and influenced by David Mackay's [Sustainable Energy without the Hot Air][wha] which I read soon after it came out in 2008. This brilliant book is still a go-to despites its age.[^1]
+
+[wha]: /without-hot-air/
 
 [^1]: Mackay was unable to update his book due to his tragically early death from cancer in 2016. One part of the effort here could be to help update his book.
 
@@ -155,7 +157,7 @@ See https://www.worldbank.org/en/topic/energy/publication/solar-photovoltaic-pow
 
 See Zotero bibliography: https://www.zotero.org/groups/1488090/life-itself/collections/XA8U7WGT
 
-* [Sustainable Energy without the Hot Air by David Mackay](/sewtha/) - Brilliant book, still a go-to even though published in 2008.
+* [Sustainable Energy without the Hot Air by David Mackay][wha] - Brilliant book, still a go-to even though published in 2008.
 * [Project Drawdown](https://projectdrawdown.org/) - see also https://github.com/datasets/awesome-data/issues/329
 * [IPCC - Special Report - Global Warming of 1.5 ºC](https://www.ipcc.ch/sr15/)
 * https://www.unep.org/interactive/emissions-gap-report/2020/ - basically things are not looking good!
