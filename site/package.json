@@ -9,6 +9,7 @@
   "dependencies": {
     "@headlessui/react": "^1.4.0",
     "@heroicons/react": "^1.0.3",
+    "@silvenon/remark-smartypants": "^1.0.0",
     "@tailwindcss/typography": "^0.4.1",
     "gray-matter": "^4.0.3",
     "next": "latest",
