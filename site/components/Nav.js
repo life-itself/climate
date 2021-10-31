@@ -9,6 +9,8 @@ const navigation = [
   { name: 'Notes', href: '/notes/', current: false },
   { name: 'Without the Hot Air', href: '/without-hot-air/', current: false },
   { name: 'Carbon Pricing', href: '/carbon-pricing/', current: false },
+  { name: 'Carbon Pricing', href: '/carbon-pricing/', current: false },
+  { name: 'Github', href: 'https://github.com/life-itself/climate', current: false },
 ]
 
 function classNames(...classes) {
