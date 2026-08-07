@@ -24,13 +24,15 @@
       {
         "name": "Without the Hot Air",
         "href": "https://withouthotair.org"
-      },
-      {
-        "name": "GitHub",
-        "href": "https://github.com/life-itself/climate"
       }
     ]
   },
+  "social": [
+    {
+      "label": "github",
+      "href": "https://github.com/life-itself/climate"
+    }
+  ],
   "footer": {
     "navigation": [
       {
@@ -45,10 +47,6 @@
       {
         "title": "This site",
         "links": [
-          {
-            "name": "Source on GitHub",
-            "href": "https://github.com/life-itself/climate"
-          },
           {
             "name": "Without the Hot Air",
             "href": "https://withouthotair.org"
