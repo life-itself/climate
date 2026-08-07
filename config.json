@@ -10,19 +10,23 @@
         "href": "/"
       },
       {
-        "name": "Notes",
-        "href": "/notes"
-      },
-      {
-        "name": "Without the Hot Air",
-        "href": "/without-hot-air"
+        "name": "Actions",
+        "href": "/actions"
       },
       {
         "name": "Carbon Pricing",
         "href": "/carbon-pricing"
       },
       {
-        "name": "Github",
+        "name": "Notes",
+        "href": "/notes"
+      },
+      {
+        "name": "Without the Hot Air",
+        "href": "https://withouthotair.org"
+      },
+      {
+        "name": "GitHub",
         "href": "https://github.com/life-itself/climate"
       }
     ]

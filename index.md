@@ -4,17 +4,34 @@ description: Life Itself's ongoing inquiry into the climate crisis 🌍🔥
 author: Rufus Pollock
 showHero: true
 cta:
-  - href: "#motivating-questions"
-    label: Read More
-  - href: /without-hot-air
-    label: Without the Hot Air
+  - href: "#start-here"
+    label: Start here
+  - href: /actions
+    label: What can we do?
 ---
 
-This project started out as a personal investigation into the climate crisis and what we can (and should) be doing about it. The aim was to document and share a path through this topic rather than to offer anything original.
+A working knowledge base on the climate crisis: notes, summaries and worked-through numbers on what is actually happening, what is causing it, and what we can — and should — do about it.
 
-It is heavily inspired and influenced by David Mackay's [[without-hot-air|Sustainable Energy without the Hot Air]] which we read soon after it came out in 2008. This brilliant book is still a go-to despites its age.[^1] In particular, his factual approach and the "you only understand what you can create for yourself" mentality. Of course, this effort is much more modest in scope (and capacity). Nevertheless, we hope it proves of value.
+It started as a personal investigation. The aim was to document and share a path through the topic rather than to offer anything original.
 
-[^1]: Mackay was unable to update his book due to his tragically early death from cancer in 2016. One part of the effort here could be to help update his book.
+It is heavily inspired and influenced by David MacKay's [Sustainable Energy — Without the Hot Air](https://withouthotair.org), which we read soon after it came out in 2008. That brilliant book is still a go-to despite its age.[^1] In particular, his factual approach and the "you only understand what you can create for yourself" mentality. This effort is much more modest in scope (and capacity). Nevertheless, we hope it proves of value.
+
+> **On dates.** Most of the material here was written in 2021 and has not been systematically revised since. The figures, and anything phrased as "where we are now", should be read with that in mind.
+
+[^1]: MacKay was unable to update his book due to his tragically early death from cancer in 2016. Part of the effort here was to help make an update possible — see [[without-hot-air|the note on that project]].
+
+## Start here
+
+* [[actions|What actions can we take?]] — which individual actions actually move the needle, and by how much
+* [[carbon-pricing]] — the "meta solution" that cuts across every sector
+* [[carbon-capture]] and [[carbon-footprint-calculators]] — two things that are less useful than they look
+* [[ev-vs-ice]] and [[economic-impact-of-climate-change]] — where the economics have already turned
+* [[ipcc-special-report-1.5-degrees-2018|IPCC Special Report on 1.5°C]] — notes on the key reference
+* [[notes]] — shorter observations
+
+The book that prompted all of this now lives at
+[withouthotair.org](https://withouthotair.org) — see [[without-hot-air|why we
+converted it]].
 
 ## Motivating questions
 
