@@ -1,6 +1,32 @@
 {
   "title": "Life Itself Climate",
   "description": "Life Itself's ongoing inquiry into the climate crisis",
+  "favicon": "🔥",
+  "nav": {
+    "title": "Life Itself Climate Inquiry 🌍🔥",
+    "links": [
+      {
+        "name": "Overview",
+        "href": "/"
+      },
+      {
+        "name": "Notes",
+        "href": "/notes"
+      },
+      {
+        "name": "Without the Hot Air",
+        "href": "/without-hot-air"
+      },
+      {
+        "name": "Carbon Pricing",
+        "href": "/carbon-pricing"
+      },
+      {
+        "name": "Github",
+        "href": "https://github.com/life-itself/climate"
+      }
+    ]
+  },
   "theme": "lessflowery",
   "showSidebar": true,
   "showToc": true,

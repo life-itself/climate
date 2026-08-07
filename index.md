@@ -1,6 +1,13 @@
 ---
-title: Climate Crisis
+title: Life Itself Climate Inquiry
+description: Life Itself's ongoing inquiry into the climate crisis 🌍🔥
 author: Rufus Pollock
+showHero: true
+cta:
+  - href: "#motivating-questions"
+    label: Read More
+  - href: /without-hot-air
+    label: Without the Hot Air
 ---
 
 This project started out as a personal investigation into the climate crisis and what we can (and should) be doing about it. The aim was to document and share a path through this topic rather than to offer anything original.
