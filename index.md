@@ -77,19 +77,14 @@ Second, forwards into the impact. The impacts is ultimately what matters but als
 
 Global temperatures have been rising, especially since 1980, relative to historical norm and this seems to be accelerating.
 
-<VegaLite spec={ 
-{
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {"url": "_files/HadCRUT.5.0.1.0.analysis.summary_series.global.annual.csv"},
-  "width": 600,
-  "height": 250,
-  "mark": "line",
-  "encoding": {
-    "x": {"field": "Time", "type": "temporal"},
-    "y": {"field": "Anomaly (deg C)", "type": "quantitative"}
-  }
-}
-} />
+<LineChart
+  data={{ url: "/assets/hadcrut5-global-annual.csv" }}
+  title="Global mean temperature anomaly, 1850-2025"
+  xAxis="Time"
+  yAxis="Anomaly (deg C)"
+/>
+
+Source: Met Office Hadley Centre [HadCRUT5](https://www.metoffice.gov.uk/hadobs/hadcrut5/) analysis summary series, global annual. Retrieved 2026-08-07.
 
 ### The Carbon Budget
 
