@@ -66,6 +66,13 @@ test('an embedded asset does not count as orphaned', async () => {
   assert.doesNotMatch(warnings.join('\n'), /Pasted image 001/);
 });
 
+test('repo-facing docs are not link-checked', async () => {
+  // CLAUDE.md is excluded from the published site, so [[slug]] in its prose is
+  // an illustration, not a broken link.
+  const { errors } = await check(fixture('skip-files'));
+  assert.deepEqual(errors, []);
+});
+
 test('orphaned asset is a warning, not an error', async () => {
   const { errors, warnings } = await check(fixture('orphan-asset'));
   assert.deepEqual(errors, []);

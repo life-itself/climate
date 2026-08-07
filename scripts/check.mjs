@@ -11,6 +11,10 @@ import path from 'node:path';
 import yaml from 'js-yaml';
 
 const SKIP_DIRS = new Set(['.git', 'node_modules', 'docs', 'scripts', '.claude']);
+// Repo-facing files, excluded from the published site via config.json's
+// contentExclude. Their prose is documentation, not site content, so link syntax
+// inside them is illustrative and must not be resolved.
+const SKIP_FILES = new Set(['CLAUDE.md', 'README.md', 'AGENTS.md']);
 const MD_EXT = /\.mdx?$/;
 const LFS_HEADER = 'version https://git-lfs.github.com/spec/';
 // LFS pointer files are a few hundred bytes; skip sniffing anything larger.
@@ -69,7 +73,9 @@ export async function check(rootDir) {
 
   const files = await walk(root, root);
   const filesOnDisk = new Set(files.map((f) => f.rel));
-  const mdFiles = files.filter((f) => MD_EXT.test(f.rel) && !f.symlink);
+  const mdFiles = files.filter(
+    (f) => MD_EXT.test(f.rel) && !f.symlink && !SKIP_FILES.has(f.rel),
+  );
 
   const pages = new Set();
   for (const f of mdFiles) for (const k of pageKeys(f.rel)) pages.add(k);
