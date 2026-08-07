@@ -1,29 +1,39 @@
 Life Itself's ongoing inquiry into the climate crisis 🌍🔥
 
-https://climate.lifeitself.us/
+https://climate.lifeitself.org/
 
 ## Layout
 
+A flat markdown knowledge base. The repo root is the publish root — these
+markdown files *are* the site, published by [Flowershow](https://flowershow.app).
+
 ```
-content/          # main content folder - files in here are published
-   notes/         # random notes zettelkasten style, published largely as blog
-sewtha/           # special folder for sustainable energy without the hot air
-site/             # website application (based on next.js)
+*.md            # the knowledge base, one page per file, flat
+index.md        # home page
+assets/         # images and data files
+config.json     # site configuration (theme, nav, redirects)
+docs/           # design, plans, review queue — not published
+scripts/        # structural checks — not published
 ```
 
-## Developers
+## Working on it
 
-The website is built in Next.JS using tailwind and MDX.
+```
+scripts/init.sh      # cold start: install deps and verify
+scripts/verify.sh    # the checks: links resolve, images exist, frontmatter parses
+```
 
-### Local
+Conventions and guard rails are in [CLAUDE.md](CLAUDE.md).
 
-1. `git clone`
-2. `yarn install`
-3. `yarn dev`
+## Without the Hot Air
 
-### Deployment
+David MacKay's *Sustainable Energy — Without the Hot Air* used to live in this
+repo. It now has its own home:
 
-We are deploying to github pages using Next.JS static build run by github actions.
+* Site: https://withouthotair.org
+* Repo: https://github.com/life-itself/without-hot-air
+
+Old `/without-hot-air/...` URLs here redirect there.
 
 ## Other work
 
