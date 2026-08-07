@@ -18,7 +18,7 @@ Challenge of mapping Weather => Climate => Damage Functions
 
 Plus including intensive (using air conditioners more) *and* extensive response (i.e. installing air conditioners)
 
-![[Pasted image 20220702224654.png]]
+![[pasted-image-20220702224654.png]]
 
 ### Papers using better approaches find impacts an order of magnitude larger e.g. around 20% of GDP
 
@@ -30,7 +30,7 @@ Plus including intensive (using air conditioners more) *and* extensive response 
 >
 > Yet it is clear that the literature on the econometric estimation of damage functions of climate change is rapidly expanding—both in terms of methods as well as sectoral and spatial coverage. The previously stagnant state of affairs where most of the damage functions in Integrated Assessment Models had not been updated significantly in over a decade has changed dramatically. Economists need to push forward in improving sectoral and spatial coverage of the damage functions provided to modelers, using methods that allow us to parameterize plausibly causal damage functions, which account for adaptation and allow us to estimate welfare impacts of climate change. The current frontier is probably best described by work using the “Ricardo meets panel data” approach.
 
-![[Pasted image 20220702225340.png]]
+![[pasted-image-20220702225340.png]]
 
 ### Just adding updated agricultural damage doubled social cost of carbon
 
