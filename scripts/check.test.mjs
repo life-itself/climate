@@ -73,16 +73,25 @@ test('repo-facing docs are not link-checked', async () => {
   assert.deepEqual(errors, []);
 });
 
-test('a chapter with no redirect is an error', async () => {
-  // fixtures/without-hot-air has chap01 and chap02; the config only redirects chap01.
+test('a redirect landing on a page that does not exist is an error', async () => {
+  // fixtures/without-hot-air has chap01 and chap02; the config redirects chap01
+  // (fine) and "gone" (which is not there) - a promise of a page that 404s.
   const { errors } = await check(fixture('redirect-site'));
-  assert.match(errors.join('\n'), /no redirect for \/without-hot-air\/chap02/);
+  assert.match(errors.join('\n'), /redirect \/without-hot-air\/gone points at \/gone/);
   assert.doesNotMatch(errors.join('\n'), /chap01/);
 });
 
+test('a sibling page with no redirect only warns', async () => {
+  // chap02 has no redirect. That is how a page added after the split looks, so
+  // it must not fail the build.
+  const { errors, warnings } = await check(fixture('redirect-site'));
+  assert.doesNotMatch(errors.join('\n'), /chap02/);
+  assert.match(warnings.join('\n'), /no redirect for \/without-hot-air\/chap02/);
+});
+
 test('the sibling repo index page needs no redirect', async () => {
-  const { errors } = await check(fixture('redirect-site'));
-  assert.doesNotMatch(errors.join('\n'), /without-hot-air\/index/);
+  const { errors, warnings } = await check(fixture('redirect-site'));
+  assert.doesNotMatch(errors.concat(warnings).join('\n'), /without-hot-air\/index/);
 });
 
 test('orphaned asset is a warning, not an error', async () => {

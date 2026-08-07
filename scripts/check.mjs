@@ -121,10 +121,24 @@ export async function check(rootDir) {
         'redirect completeness not checked: ../without-hot-air is not checked out',
       );
     }
-    const haveFrom = new Set((config.redirects ?? []).map((r) => String(r.from)));
-    for (const slug of siblingPages) {
-      if (!haveFrom.has(`/without-hot-air/${slug}`)) {
-        errors.push(`config.json: no redirect for /without-hot-air/${slug}`);
+    if (siblingPages.length) {
+      const known = new Set(siblingPages);
+      // A redirect that lands nowhere is worse than no redirect: it promises a
+      // page and delivers a 404. This is what catches a renamed chapter.
+      for (const r of config.redirects) {
+        const m = String(r.to).match(/^https:\/\/withouthotair\.org\/(.+)$/);
+        if (m && !known.has(m[1])) {
+          errors.push(`config.json: redirect ${r.from} points at /${m[1]}, which no longer exists`);
+        }
+      }
+      // A page with no redirect is only a problem if it is one people could
+      // already have linked to. New pages added after the split are fine, so
+      // this warns rather than fails.
+      const haveFrom = new Set(config.redirects.map((r) => String(r.from)));
+      for (const slug of siblingPages) {
+        if (!haveFrom.has(`/without-hot-air/${slug}`)) {
+          warnings.push(`no redirect for /without-hot-air/${slug} (fine if added after the split)`);
+        }
       }
     }
   }

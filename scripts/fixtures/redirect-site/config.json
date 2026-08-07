@@ -1,5 +1,6 @@
 {
   "redirects": [
-    { "from": "/without-hot-air/chap01", "to": "https://withouthotair.org/chap01", "permanent": true }
+    { "from": "/without-hot-air/chap01", "to": "https://withouthotair.org/chap01", "permanent": true },
+    { "from": "/without-hot-air/gone", "to": "https://withouthotair.org/gone", "permanent": true }
   ]
 }
