@@ -23,19 +23,25 @@ So they come here instead, and get resolved in conversation.
 
 ## Open
 
-_Nothing yet — the migration has not started. Items get added as tasks land._
-
-Expected additions, per the plan:
-
-- Both note splits from `notes.md` (task 6) — where one note's meaning ends and
-  the next begins is a reading decision.
-- The temperature chart (task 8) — Flowershow renders it server-side, so whether
-  it actually draws cannot be checked locally.
-- Overall coherence of the flattened knowledge base (task 13) — the checker can
-  prove every link resolves, not that the structure makes sense.
-- Both sites' appearance under the `lessflowery` theme (task 13).
-- Whether the 2021-era prose in the notes and on the home page still stands, or
-  needs a dated caveat. Several passages make claims about "as of 2021".
+- [ ] **The two note splits** (task 6) — `notes.md` became
+      `meta-vs-specific-solutions-debates.md` and
+      `techno-solutionism-and-mitigation.md`. Both headings carried a trailing
+      `2021-05-09` and the first carried `~rufus`; I moved the date into
+      `created:` frontmatter and dropped the `~rufus` attribution, since the
+      whole repo is yours. Filenames are my invention — the original headings
+      were too long to use verbatim. Body prose is untouched, typos included
+      ("somthing", "discusison"). Check the names and whether you want the typos
+      fixed.
+- [ ] **The temperature chart** (task 8) — Flowershow renders it server-side, so
+      whether it actually draws cannot be checked locally.
+- [ ] **Overall coherence of the flattened knowledge base** (task 13) — the
+      checker proves every link resolves, not that the structure makes sense.
+- [ ] **Both sites' appearance** under the `lessflowery` theme (task 13).
+- [ ] **Whether the 2021-era prose still stands** — the home page argues from a
+      "as of 2021, we are not following that pathway" framing and cites a 2018
+      carbon budget. Five years on this needs either updating or an explicit
+      dated caveat. This is the largest piece of genuine content work the
+      migration surfaces, and it is out of scope for the migration itself.
 
 ## Resolved
 
