@@ -14,7 +14,12 @@ meta:
   # assets served (PNG is a real 116KB image, so the LFS bug is fixed in prod),
   # legacy chapter URLs 308 to withouthotair.org, typo redirect works, GA
   # G-PV1VZND295 loading, favicon/nav/hero/footer all present.
-  # withouthotair.org was not yet registered at check time (RDAP 404).
+  # withouthotair.org verified live 2026-08-08 (via --resolve; the local
+  # resolver was still caching the earlier NXDOMAIN): /, /about and chapters
+  # 200, unknown route 404, chapter titles correct, no raw span markup, and
+  # climate.lifeitself.org/without-hot-air/chap01 completes to a 200.
+  # Note: its A records are Cloudflare proxy IPs (188.114.96.2/97.2), not the
+  # Vercel address Flowershow's docs specify - see the review queue.
   # 443 errors against the target structure on the pre-migration tree, at commit
   # e7547a1. Expected: the checker gates the target layout, not today's. This
   # number should fall monotonically as tasks land. It is a progress signal, not
@@ -130,7 +135,7 @@ features:
   - id: flowershow-connect-wha
     task: 13
     description: connect life-itself/without-hot-air as a Flowershow site
-    passes: false
+    passes: true
     human: true
 
   - id: dns-climate
@@ -142,14 +147,14 @@ features:
   - id: dns-wha
     task: 13
     description: withouthotair.org apex A record plus www CNAME
-    passes: false
+    passes: true
     human: true
 
   - id: live-smoke-check
     task: 13
     description: both sites serve over HTTPS, deep pages 200, legacy chapter URLs
       301 to withouthotair.org, chart renders, bad route 404s
-    passes: false
+    passes: true
     human: true
 
   - id: ghpages-teardown
@@ -158,5 +163,7 @@ features:
     passes: false
     human: true
     reason: >-
-      Blocked on live-smoke-check. Deleting it takes the current live site down,
-      so it must not happen until the replacement is confirmed serving.
+      Deliberately kept. Rufus wants the old site available on climate for now
+      as a fallback; the Flowershow site is live and serving, so this is a
+      choice rather than a blocker. Not kept for without-hot-air, which never
+      had a gh-pages build of its own.

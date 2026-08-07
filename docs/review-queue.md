@@ -68,6 +68,16 @@ So they come here instead, and get resolved in conversation.
       dated caveat. This is the largest piece of genuine content work the
       migration surfaces, and it is out of scope for the migration itself.
 
+- [ ] **`withouthotair.org` is proxied through Cloudflare**, not pointed at
+      Vercel directly — its A records are `188.114.96.2` / `188.114.97.2`, which
+      are Cloudflare proxy addresses, whereas `climate.lifeitself.org` resolves
+      to `vercel-dns-016.com`. It works and serves valid TLS, so this is not
+      urgent, but it is the most likely cause of the SSL trouble seen during
+      setup: an orange-cloud proxy in front of Vercel needs SSL mode "Full
+      (strict)" or it breaks. Switching the record to DNS-only (grey cloud) is
+      the configuration Flowershow's docs assume. Worth a look before it bites
+      during a certificate renewal.
+
 ## Resolved
 
 _None yet._
