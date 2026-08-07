@@ -69,6 +69,11 @@
   ],
   "redirects": [
     {
+      "from": "/without-hot-air",
+      "to": "https://withouthotair.org",
+      "permanent": true
+    },
+    {
       "from": "/ipcc-special-report-1.5-degress-2018",
       "to": "/ipcc-special-report-1.5-degrees-2018",
       "permanent": true

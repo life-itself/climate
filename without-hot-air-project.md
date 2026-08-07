@@ -1,5 +1,5 @@
 ---
-title: Converting Without the Hot Air
+title: Project — Converting Without the Hot Air
 created: 2021-09-02
 description: Why and how we converted David MacKay's book to open, editable markdown — and where it lives now.
 ---

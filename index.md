@@ -22,7 +22,7 @@ It is heavily inspired and influenced by David MacKay's [Sustainable Energy — 
 
 > **On dates.** Most of the material here was written in 2021 and has not been systematically revised since. The figures, and anything phrased as "where we are now", should be read with that in mind.
 
-[^1]: MacKay was unable to update his book due to his tragically early death from cancer in 2016. Part of the effort here was to help make an update possible — see [[without-hot-air|the note on that project]].
+[^1]: MacKay was unable to update his book due to his tragically early death from cancer in 2016. Part of the effort here was to help make an update possible — see [[without-hot-air-project|the note on that project]].
 
 ## Start here
 
@@ -34,7 +34,7 @@ It is heavily inspired and influenced by David MacKay's [Sustainable Energy — 
 * [[notes]] — shorter observations
 
 The book that prompted all of this now lives at
-[withouthotair.org](https://withouthotair.org) — see [[without-hot-air|why we
+[withouthotair.org](https://withouthotair.org) — see [[without-hot-air-project|why we
 converted it]].
 
 ## Motivating questions
@@ -176,7 +176,7 @@ See https://www.worldbank.org/en/topic/energy/publication/solar-photovoltaic-pow
 
 See Zotero bibliography: https://www.zotero.org/groups/1488090/life-itself/collections/XA8U7WGT
 
-* [[without-hot-air|Sustainable Energy without the Hot Air by David Mackay]] - Brilliant book, still a go-to even though published in 2008.
+* [Sustainable Energy without the Hot Air by David MacKay](https://withouthotair.org) — brilliant book, still a go-to even though published in 2008. We maintain the [community edition](https://withouthotair.org); see [[without-hot-air-project|why]].
 * [Project Drawdown](https://projectdrawdown.org/) - see also https://github.com/datasets/awesome-data/issues/329
 * [IPCC - Special Report - Global Warming of 1.5 ºC](https://www.ipcc.ch/sr15/)
 * https://www.unep.org/interactive/emissions-gap-report/2020/ - basically things are not looking good!
