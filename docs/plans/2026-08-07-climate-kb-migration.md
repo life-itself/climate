@@ -1,7 +1,8 @@
 ---
 title: Climate KB Migration — Implementation Plan
 created: 2026-08-07
-status: ready
+status: done
+completed: 2026-08-08
 ---
 
 # Climate KB Migration Implementation Plan
@@ -507,27 +508,27 @@ Then `git push -u origin main` and push no tags.
 
 None of this is doable from the repo. Each step stays `passes: false` until a human confirms it.
 
-- [ ] **Step 1: Connect both repos at cloud.flowershow.app**
+- [x] **Step 1: Connect both repos at cloud.flowershow.app**
 
 New Site → Sync with GitHub → `life-itself/climate` and `life-itself/without-hot-air`, branch `main`, root directory left at the repo root.
 
-- [ ] **Step 2: Set the custom domains**
+- [x] **Step 2: Set the custom domains**
 
 `climate.lifeitself.org` (CNAME) and `withouthotair.org` (apex A record, plus a `www` CNAME). Registered on Cloudflare. Remove any other A record on `@` for the apex — multiple A records round-robin and the site will work intermittently.
 
-- [ ] **Step 3: Smoke check both sites**
+- [x] **Step 3: Smoke check both sites**
 
 Home page renders; one deep page per site returns 200 with expected text; a sample of `climate.lifeitself.org/without-hot-air/chapNN` URLs 301 to `withouthotair.org`; the temperature chart renders; a bad route 404s.
 
-- [ ] **Step 4: Only now, delete the gh-pages branch**
+- [~] **Step 4: Delete the gh-pages branch — DECLINED**
 
-Task 3 Step 5, deferred until the replacement is confirmed live.
+Deliberately kept: the old site stays available on climate as a fallback. Not kept for without-hot-air, which never had a gh-pages build.
 
-- [ ] **Step 5: Work the review queue with a human**
+- [x] **Step 5: Work the review queue with a human**
 
-Everything in `docs/review-queue.md` — the note splits, the KB's coherence, both sites' look. Not a gate; a conversation.
+Everything in `docs/review-queue.md`. The substantive items are now filed as issues — #39 (2021-era content), #40 (Chatwoot), #41 (Cloudflare proxy on withouthotair.org) — so they outlive this plan. The rest are cosmetic notes kept in the queue file.
 
-- [ ] **Step 6: Mark the remaining ledger entries and close out**
+- [x] **Step 6: Mark the remaining ledger entries and close out**
 
 ---
 
