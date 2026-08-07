@@ -165,20 +165,22 @@ Two classes of legacy URL on `climate.lifeitself.org`:
 3. `/ipcc-special-report-1.5-degress-2018` → the corrected spelling. Same-site,
    unambiguous.
 
-Flowershow redirects are **client-side and exact-match only** — no globs — so
-the chapter redirects are 54 generated entries. `verify.sh` checks the generated
-list against the actual chapter file list so it cannot silently drift.
+Flowershow redirects are **exact-match only** — no globs — so the chapter
+redirects are 54 generated entries pointing at
+`https://withouthotair.org/<chapter>`. `verify.sh` checks the generated list
+against the actual chapter file list so it cannot silently drift.
 
-**Open risk.** The `redirects` reference documents `to` as *a path starting with
-`/`*. Cross-domain targets may not be supported. This is tested before the
-chapter redirects are generated:
+Cross-domain targets are confirmed to work. In
+`apps/flowershow/app/(public)/site/[user]/[project]/[[...slug]]/page.tsx:180`,
+a site with a custom domain uses `r.to` verbatim and hands it to Next.js
+`redirect()` / `permanentRedirect()`, both of which accept absolute URLs.
+`climate.lifeitself.org` is a custom domain, so this applies.
 
-- **If absolute URLs work** — 54 entries pointing at
-  `https://withouthotair.org/<chapter>`.
-- **If they do not** — 54 minimal stub pages under `without-hot-air/` on the
-  climate site, each linking to its counterpart. Ugly but honest, and it keeps
-  the flat-one-level rule intact everywhere else (this is the one permitted
-  exception, and it is machine-generated).
+Each entry sets `permanent: true` for a 301. The field is supported by the
+implementation and the dashboard but is undocumented in
+`docs/reference/redirects.md`, which also describes these as client-side
+redirects when they are in fact server-side — two upstream doc bugs worth
+filing separately against the Flowershow repo.
 
 The old `/sewtha/` redirects are dropped — they date from 2021 and were a
 six-month measure.
