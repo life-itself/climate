@@ -486,15 +486,15 @@ Commit: `[config/2][m]: add flowershow config with chapter redirects`
 
 ### Task 12: Create and push the GitHub repo — HUMAN GATE
 
-- [ ] **Step 1: Confirm before creating**
+- [x] **Step 1: Confirm before creating**
 
 `gh repo create life-itself/without-hot-air --public` is outward-facing and effectively irreversible in reputation terms. Ask before running it, even under an autonomous loop. The token has `repo` scope and the user is `admin` on `life-itself`, so it will succeed — which is exactly why it needs the gate.
 
-- [ ] **Step 2: Create and push**
+- [x] **Step 2: Create and push**
 
 Then `git push -u origin main` and push no tags.
 
-- [ ] **Step 3: Mark `wha-repo-create` `passes: true`**
+- [x] **Step 3: Mark `wha-repo-create` `passes: true`**
 
 ---
 

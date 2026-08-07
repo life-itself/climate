@@ -113,7 +113,7 @@ features:
   - id: wha-repo-create
     task: 12
     description: gh repo create life-itself/without-hot-air --public, then push
-    passes: false
+    passes: true
     human: true
 
   - id: flowershow-connect-climate
