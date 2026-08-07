@@ -32,8 +32,22 @@ So they come here instead, and get resolved in conversation.
       were too long to use verbatim. Body prose is untouched, typos included
       ("somthing", "discusison"). Check the names and whether you want the typos
       fixed.
-- [ ] **The temperature chart** (task 8) — Flowershow renders it server-side, so
-      whether it actually draws cannot be checked locally.
+- [ ] **The temperature chart** (task 8) — confirmed live that the CSV is served
+      (200, `text/csv`, 7022 bytes) and the component references it, but
+      `<LineChart>` draws client-side so the served HTML contains no SVG.
+      Whether it actually renders needs a human with a browser.
+- [ ] **The Chatwoot live-chat widget is gone.** The old `site/pages/_app.js`
+      loaded Chatwoot unconditionally (`websiteToken: tc1GJE9wAmNSHGVUUa8gDLcd`,
+      app.chatwoot.com). Flowershow's `config.json` has no arbitrary-script
+      slot, so this cannot be reproduced from the repo. Decide whether you want
+      it back — it may be reachable through the dashboard, or it may simply be
+      something that quietly ran for years and nobody used.
+- [ ] **Home page tab title reads twice**: "Life Itself Climate Inquiry | Life
+      Itself Climate Inquiry 🌍🔥", because the page title and the site-wide
+      suffix are the same string. Subpages are fine ("Carbon Pricing | Life
+      Itself Climate Inquiry 🌍🔥"). Left alone because the frontmatter `title`
+      is also what feeds the hero heading, and the hero matters more than the
+      duplication. Fixable by moving the hero title to an `# H1` instead.
 - [ ] **Overall coherence of the flattened knowledge base** (task 13) — the
       checker proves every link resolves, not that the structure makes sense.
 - [ ] **Both sites' appearance** under the `lessflowery` theme (task 13).

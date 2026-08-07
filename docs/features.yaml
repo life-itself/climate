@@ -10,6 +10,11 @@
 meta:
   checker_baseline_errors: 443
   current_errors: 0
+  # climate.lifeitself.org verified live 2026-08-08: pages 200, bad route 404,
+  # assets served (PNG is a real 116KB image, so the LFS bug is fixed in prod),
+  # legacy chapter URLs 308 to withouthotair.org, typo redirect works, GA
+  # G-PV1VZND295 loading, favicon/nav/hero/footer all present.
+  # withouthotair.org was not yet registered at check time (RDAP 404).
   # 443 errors against the target structure on the pre-migration tree, at commit
   # e7547a1. Expected: the checker gates the target layout, not today's. This
   # number should fall monotonically as tasks land. It is a progress signal, not
@@ -119,7 +124,7 @@ features:
   - id: flowershow-connect-climate
     task: 13
     description: connect life-itself/climate as a Flowershow site
-    passes: false
+    passes: true
     human: true
 
   - id: flowershow-connect-wha
@@ -131,7 +136,7 @@ features:
   - id: dns-climate
     task: 13
     description: climate.lifeitself.org CNAME to Flowershow
-    passes: false
+    passes: true
     human: true
 
   - id: dns-wha
