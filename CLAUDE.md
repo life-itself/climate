@@ -47,6 +47,11 @@ does not.
 - Frontmatter is light: `title` always, `created` where known, `description` and
   `tags` only when they earn their place.
 - No Git LFS.
+- A page using a React component (`<LineChart>`, `<List>`) needs
+  `syntaxMode: mdx` in its own frontmatter. The site default is `auto`, which
+  parses `.md` as plain Markdown and renders the component as nothing. Do not
+  set it site-wide — MDX is stricter and will break pages containing bare `{`
+  or `<`. Escape those as `\{` / `\<` on pages that do need MDX.
 - Commit messages: `[scope/N][size]: subject` — e.g. `[content/2][m]: ...`,
   where N is a rough 1-3 priority and size is `xs`/`s`/`m`/`l`.
 

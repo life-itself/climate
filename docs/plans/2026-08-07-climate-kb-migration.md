@@ -371,7 +371,12 @@ The old spec used `Time` and `Anomaly (deg C)`. Verify against the file actually
 />
 ```
 
-JSX works in plain `.md` in Flowershow — no `.mdx` rename needed.
+JSX in a `.md` file requires `syntaxMode: mdx` — Flowershow's default is
+`auto`, which parses `.md` as plain Markdown and leaves `<LineChart>` as inert
+text. Set it in the page's frontmatter rather than site-wide: MDX parsing is
+stricter and can break pages that are fine as Markdown. On this page it also
+required escaping the IPCC section references `\{2.2.2, 2.6.1\}` in the
+blockquotes, which MDX would otherwise read as JS expressions.
 
 - [x] **Step 4: Add to the review queue**
 

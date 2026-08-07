@@ -32,10 +32,12 @@ So they come here instead, and get resolved in conversation.
       were too long to use verbatim. Body prose is untouched, typos included
       ("somthing", "discusison"). Check the names and whether you want the typos
       fixed.
-- [ ] **The temperature chart** (task 8) — confirmed live that the CSV is served
-      (200, `text/csv`, 7022 bytes) and the component references it, but
-      `<LineChart>` draws client-side so the served HTML contains no SVG.
-      Whether it actually renders needs a human with a browser.
+- [ ] **The temperature chart** (task 8) — it was rendering as nothing, because
+      the page lacked `syntaxMode: mdx` and `<LineChart>` was parsed as text.
+      Now fixed: the page compiles to `_jsx(LineChart, {...})`. The CSV serves
+      (200, `text/csv`, 7022 bytes). It still hydrates client-side, so whether
+      it actually *draws* needs a human with a browser — if it comes up empty,
+      suspect the column name `Anomaly (deg C)`.
 - [ ] **The Chatwoot live-chat widget is gone.** The old `site/pages/_app.js`
       loaded Chatwoot unconditionally (`websiteToken: tc1GJE9wAmNSHGVUUa8gDLcd`,
       app.chatwoot.com). Flowershow's `config.json` has no arbitrary-script
