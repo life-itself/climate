@@ -1,5 +1,5 @@
 {
-  "title": "Life Itself Climate",
+  "title": "Life Itself Climate Inquiry 🌍🔥",
   "description": "Life Itself's ongoing inquiry into the climate crisis",
   "favicon": "🔥",
   "nav": {
@@ -24,6 +24,32 @@
       {
         "name": "Github",
         "href": "https://github.com/life-itself/climate"
+      }
+    ]
+  },
+  "footer": {
+    "navigation": [
+      {
+        "title": "A Project of",
+        "links": [
+          {
+            "name": "Life Itself",
+            "href": "https://lifeitself.org/"
+          }
+        ]
+      },
+      {
+        "title": "This site",
+        "links": [
+          {
+            "name": "Source on GitHub",
+            "href": "https://github.com/life-itself/climate"
+          },
+          {
+            "name": "Without the Hot Air",
+            "href": "https://withouthotair.org"
+          }
+        ]
       }
     ]
   },

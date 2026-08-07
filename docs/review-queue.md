@@ -37,6 +37,17 @@ So they come here instead, and get resolved in conversation.
 - [ ] **Overall coherence of the flattened knowledge base** (task 13) — the
       checker proves every link resolves, not that the structure makes sense.
 - [ ] **Both sites' appearance** under the `lessflowery` theme (task 13).
+- [ ] **The footer is not a faithful reproduction.** The old one was the Life
+      Itself logo under the words "A Project of". Flowershow's `footer` takes
+      link groups only — no image slot — so it is now a text link to
+      lifeitself.org. The logo SVG was deliberately not carried over: nothing
+      would reference it, and an unreferenced asset trips the orphan warning.
+      It remains recoverable at `git show pre-flowershow:site/public/life-itself-logo.svg`.
+      Options if you want the logo back: put it in the navbar via the `logo`
+      config field, or leave the footer as text.
+- [ ] **The old footer linked to vercel.com** — a leftover from
+      `create-next-app`, so "A Project of Life Itself" sent people to Vercel.
+      Now points at lifeitself.org. Flagging in case that was somehow deliberate.
 - [ ] **Whether the 2021-era prose still stands** — the home page argues from a
       "as of 2021, we are not following that pathway" framing and cites a 2018
       carbon budget. Five years on this needs either updating or an explicit
