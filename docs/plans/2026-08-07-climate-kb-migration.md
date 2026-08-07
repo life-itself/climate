@@ -193,27 +193,27 @@ Commit: `[tooling/2][m]: add ledger, review queue and house rules`
 - Delete: `site/` (entire), `.github/workflows/main.yml`, `.gitattributes`
 - Modify: `docs/features.yaml`
 
-- [ ] **Step 1: Tag the current state**
+- [x] **Step 1: Tag the current state**
 
 Run: `git tag pre-flowershow && git push origin pre-flowershow`
 This is the only recovery path for `site/` other than history. Do it before deleting.
 
-- [ ] **Step 2: Record the two facts `site/` holds that must survive**
+- [x] **Step 2: Record the two facts `site/` holds that must survive**
 
 From `site/config/siteConfig.js`: analytics key `G-PV1VZND295`, title `Life Itself Climate Inquiry`. From `site/public/CNAME`: `climate.lifeitself.org`. These feed Task 11's `config.json`. Write them into `docs/features.yaml` under the `climate-config` entry as a `notes:` field so they cannot be lost.
 
-- [ ] **Step 3: Delete**
+- [x] **Step 3: Delete**
 
 `git rm -r site .github/workflows/main.yml .gitattributes`
 
 The `/sewtha/` redirects in `site/next.config.js` are deliberately dropped — 2021-era, six-month measure.
 
-- [ ] **Step 4: Verify and commit**
+- [x] **Step 4: Verify and commit**
 
 Run: `scripts/verify.sh` → exit 0. Mark `site-teardown` `passes: true`.
 Commit: `[site/3][l]: remove next.js app, deploy to flowershow instead`
 
-- [ ] **Step 5: Delete the stale gh-pages branch**
+- [x] **Step 5: Delete the stale gh-pages branch**
 
 `git push origin --delete gh-pages`. **Outward-facing** — this takes the current live site down, so it must happen only after the Flowershow site is confirmed live (Task 13). Leave `passes: false` and note the dependency; do not do it now.
 
@@ -226,23 +226,23 @@ Commit: `[site/3][l]: remove next.js app, deploy to flowershow instead`
 - Delete: the `content/without-hot-air` symlink, then `content/`
 - Rename: `home.md` → `index.md`; `ipcc-special-report-1.5-degress-2018.md` → `ipcc-special-report-1.5-degrees-2018.md`
 
-- [ ] **Step 1: Remove the symlink first**
+- [x] **Step 1: Remove the symlink first**
 
 `git rm content/without-hot-air`. It points at `../without-hot-air/src`; leaving it would make the moves resolve strangely. WHA content is handled in Task 10 and is not moved to the root here.
 
-- [ ] **Step 2: Move each file with `git mv`**
+- [x] **Step 2: Move each file with `git mv`**
 
 Use `git mv` so history follows. `content/home.md` → `index.md`. Fix the `degress` → `degrees` typo in the same move.
 
-- [ ] **Step 3: Note the redirect debt created**
+- [x] **Step 3: Note the redirect debt created**
 
 The typo fix changes a live URL. Add `/ipcc-special-report-1.5-degress-2018` → `/ipcc-special-report-1.5-degrees-2018` to the `climate-config` notes in `docs/features.yaml` so Task 11 picks it up.
 
-- [ ] **Step 4: Update every internal link that pointed into `content/`**
+- [x] **Step 4: Update every internal link that pointed into `content/`**
 
 Run verify to find them. Expect `index.md`'s `[wha]: /without-hot-air/` reference definition and the site nav links.
 
-- [ ] **Step 5: Verify and commit**
+- [x] **Step 5: Verify and commit**
 
 Run: `scripts/verify.sh` → exit 0. Mark `content-flatten` `passes: true`.
 Commit: `[content/3][l]: flatten content to repo root for flowershow`
@@ -256,15 +256,15 @@ Runs **after** Task 4's flatten, when the checker can actually be green.
 **Files:**
 - Create: `.claude/settings.json`
 
-- [ ] **Step 1: Confirm the checker is green first**
+- [x] **Step 1: Confirm the checker is green first**
 
 Run: `scripts/verify.sh` → must exit 0. If it does not, fix the tree — never the checker.
 
-- [ ] **Step 2: Write `.claude/settings.json` with a `Stop` hook running `scripts/verify.sh`**
+- [x] **Step 2: Write `.claude/settings.json` with a `Stop` hook running `scripts/verify.sh`**
 
 This is the gate `/goal` cannot argue its way past.
 
-- [ ] **Step 3: Mark `checker-baseline` and `stop-hook` `passes: true`, commit**
+- [x] **Step 3: Mark `checker-baseline` and `stop-hook` `passes: true`, commit**
 
 Commit: `[tooling/1][s]: wire verify.sh as a stop hook`
 
@@ -278,23 +278,23 @@ Commit: `[tooling/1][s]: wire verify.sh as a stop hook`
 
 `notes.md` holds two dated notes concatenated under `#` headings, both `2021-05-09`, one signed `~rufus`.
 
-- [ ] **Step 1: Create the first note**
+- [x] **Step 1: Create the first note**
 
 Frontmatter `title` (the heading text, with the trailing date and `~rufus` stripped) and `created: 2021-05-09`. Body is the note text verbatim — do not rewrite the prose.
 
-- [ ] **Step 2: Create the second note**
+- [x] **Step 2: Create the second note**
 
 Same treatment.
 
-- [ ] **Step 3: Delete `notes.md` and fix inbound links**
+- [x] **Step 3: Delete `notes.md` and fix inbound links**
 
 Run verify to catch anything pointing at `/notes`.
 
-- [ ] **Step 4: Add both splits to the review queue**
+- [x] **Step 4: Add both splits to the review queue**
 
 A split is a judgement call about where a note's meaning starts and stops. Add both to `docs/review-queue.md` for human confirmation. Do NOT gate on it.
 
-- [ ] **Step 5: Verify and commit**
+- [x] **Step 5: Verify and commit**
 
 Run: `scripts/verify.sh` → exit 0. Mark `notes-split` `passes: true`.
 Commit: `[content/2][m]: split notes.md into one file per note`
@@ -307,7 +307,7 @@ Commit: `[content/2][m]: split notes.md into one file per note`
 - Move: `assets/*` stays; `without-hot-air/Images/*` is left in place for Task 10
 - Modify: every markdown file referencing an image
 
-- [ ] **Step 1: Recover the five LFS-pointered images**
+- [x] **Step 1: Recover the five LFS-pointered images**
 
 **Confirmed state:** all five files in `assets/` are Git LFS *pointers*, both in the index and in the working tree, and `git-lfs` is not installed on this machine. They are also **broken in production** — `climate.lifeitself.org` serves a 131-byte pointer with `Content-Type: image/png`, because the 2021 workflow used `actions/checkout@v2.3.1` with no `lfs: true`. So this step fixes a live bug, it is not housekeeping.
 
@@ -327,19 +327,19 @@ Then GET the returned `actions.download.href` (pre-signed, expires in 1h) and wr
 
 Install `git-lfs` and use `git lfs pull` instead if you prefer — but do not make it a prerequisite of `init.sh`, which must work on a machine without it.
 
-- [ ] **Step 2: Confirm the checker goes quiet**
+- [x] **Step 2: Confirm the checker goes quiet**
 
 `node scripts/check.mjs .` must stop reporting `is a Git LFS pointer`. The checker sniffs any file under 1KB for the pointer header, so a partial recovery cannot slip through.
 
-- [ ] **Step 3: Normalise every image reference to `/assets/<file>`**
+- [x] **Step 3: Normalise every image reference to `/assets/<file>`**
 
 The existing `assets/` filenames include spaces (`Pasted image 20220702193419.png`). Rename to kebab-case with `git mv` and update references — spaces in URLs are a persistent source of breakage.
 
-- [ ] **Step 4: Rewrite the 389 `/img/without-hot-air/...` references**
+- [x] **Step 4: Rewrite the 389 `/img/without-hot-air/...` references**
 
 These currently resolve only through the `site/public/img/without-hot-air` symlink, which Task 3 deleted. Rewrite them to `/assets/<file>`; the figures move in Task 10 when the WHA repo is split, so in this repo the rewrite is limited to `without-hot-air.md`'s cover image.
 
-- [ ] **Step 5: Verify and commit**
+- [x] **Step 5: Verify and commit**
 
 Run: `scripts/verify.sh` → exit 0 with no LFS error. Mark `asset-normalisation` and `lfs-removal` `passes: true`.
 Commit: `[assets/2][m]: normalise asset paths, drop git-lfs`
@@ -352,15 +352,15 @@ Commit: `[assets/2][m]: normalise asset paths, drop git-lfs`
 - Create: `assets/hadcrut5-global-annual.csv`
 - Modify: `index.md`
 
-- [ ] **Step 1: Fetch the real data**
+- [x] **Step 1: Fetch the real data**
 
 The original VegaLite spec read a HadCRUT5 global annual summary series. Download the current file from the Met Office HadCRUT5 dataset page. Record the source URL and access date in the CSV's sibling documentation — a chart with no provenance is worse than no chart.
 
-- [ ] **Step 2: Confirm the column names**
+- [x] **Step 2: Confirm the column names**
 
 The old spec used `Time` and `Anomaly (deg C)`. Verify against the file actually downloaded; HadCRUT column headers have changed across releases. Use the real headers, not the remembered ones.
 
-- [ ] **Step 3: Replace the dead `<VegaLite>` block with the Flowershow component**
+- [x] **Step 3: Replace the dead `<VegaLite>` block with the Flowershow component**
 
 ```jsx
 <LineChart
@@ -373,11 +373,11 @@ The old spec used `Time` and `Anomaly (deg C)`. Verify against the file actually
 
 JSX works in plain `.md` in Flowershow — no `.mdx` rename needed.
 
-- [ ] **Step 4: Add to the review queue**
+- [x] **Step 4: Add to the review queue**
 
 Whether the chart *renders correctly* cannot be checked locally — Flowershow builds it server-side. Add "confirm temperature chart renders" to `docs/review-queue.md`, to be checked during Task 13's smoke check.
 
-- [ ] **Step 5: Verify and commit**
+- [x] **Step 5: Verify and commit**
 
 Run: `scripts/verify.sh` → exit 0. Mark `chart-port` `passes: true`.
 Commit: `[content/2][m]: restore temperature chart using flowershow LineChart`
@@ -389,11 +389,11 @@ Commit: `[content/2][m]: restore temperature chart using flowershow LineChart`
 **Files:**
 - Modify: every markdown file at the root
 
-- [ ] **Step 1: Convert `[text](/path/)` internal links to `[[slug|text]]`**
+- [x] **Step 1: Convert `[text](/path/)` internal links to `[[slug|text]]`**
 
 Only *internal* links. External `http(s)://` links stay as markdown links. Reference-style definitions (`[wha]: /without-hot-air/`) need converting too, or removing where the wikilink makes them redundant.
 
-- [ ] **Step 2: Verify and commit**
+- [x] **Step 2: Verify and commit**
 
 Run: `scripts/verify.sh` → exit 0. Every wikilink must resolve; this is the check that makes the conversion safe.
 Commit: `[content/2][m]: convert internal links to wikilinks`
@@ -408,27 +408,27 @@ Commit: `[content/2][m]: convert internal links to wikilinks`
 
 Per the design: clone the whole repo with full history, then one refactor commit. No `filter-repo`, no history rewrite.
 
-- [ ] **Step 1: Clone**
+- [x] **Step 1: Clone**
 
 `git clone . ../without-hot-air` then repoint `origin` to `git@github.com:life-itself/without-hot-air.git`. Do not create the GitHub repo yet — that is Task 12.
 
-- [ ] **Step 2: Promote `without-hot-air/src/*` to the root and delete everything else**
+- [x] **Step 2: Promote `without-hot-air/src/*` to the root and delete everything else**
 
 `git mv without-hot-air/src/*.md .`, `git mv without-hot-air/Images assets`, `git mv without-hot-air/extract.py .`, `git mv without-hot-air/without-hot-air.epub .`, then `git rm -r` the climate content, `docs/`, and the leftover `without-hot-air/` shell. Keep `scripts/` — the new repo needs the same checker.
 
-- [ ] **Step 3: Create `index.md` from the climate repo's `without-hot-air.md`**
+- [x] **Step 3: Create `index.md` from the climate repo's `without-hot-air.md`**
 
 Adapt: chapter links become root-relative wikilinks (`[[chap01]]` not `/without-hot-air/chap01`), the cover image points at `/assets/cover.jpg`, and the "get in touch" link `https://lifeitself.us/contact` is updated to the `lifeitself.org` domain (the `.us` → `.org` rename landed in commit `046bf5e`). Carry the license and credits sections over **verbatim**.
 
-- [ ] **Step 4: Fix `extract.py`'s output path**
+- [x] **Step 4: Fix `extract.py`'s output path**
 
 It writes to `src/`; chapters now live at the root. Change the output directory so a regeneration lands correctly. This is the generator, so it gets fixed rather than its output being patched.
 
-- [ ] **Step 5: Rewrite the README for a standalone repo**
+- [x] **Step 5: Rewrite the README for a standalone repo**
 
 Keep the "Why this project", Sources, Credits and License sections verbatim. Update the Content section to the new layout and the developer instructions for the new `extract.py` path.
 
-- [ ] **Step 6: Write `config.json`**
+- [x] **Step 6: Write `config.json`**
 
 ```json
 {
@@ -440,15 +440,15 @@ Keep the "Why this project", Sources, Credits and License sections verbatim. Upd
 }
 ```
 
-- [ ] **Step 7: Copy `CLAUDE.md` and the checker, then verify**
+- [x] **Step 7: Copy `CLAUDE.md` and the checker, then verify**
 
 Run: `scripts/verify.sh` in `../without-hot-air` → exit 0. Every one of the 54 chapters' figure references must resolve against `assets/`; this is the check that proves the image move was complete.
 
-- [ ] **Step 8: Commit in the new repo**
+- [x] **Step 8: Commit in the new repo**
 
 `[repo/3][l]: refactor climate repo into standalone without-hot-air`
 
-- [ ] **Step 9: In the climate repo, replace `without-hot-air.md` with a stub**
+- [x] **Step 9: In the climate repo, replace `without-hot-air.md` with a stub**
 
 A short page introducing the book and linking to `https://withouthotair.org`. Then `git rm -r without-hot-air/` — the source now lives in its own repo. Verify, then commit `[content/3][l]: split without-hot-air out to its own repo`. Mark `wha-repo-split` and `wha-config` `passes: true`.
 
@@ -459,11 +459,11 @@ A short page introducing the book and linking to `https://withouthotair.org`. Th
 **Files:**
 - Modify: `config.json` (climate repo), created here
 
-- [ ] **Step 1: Write the climate `config.json`**
+- [x] **Step 1: Write the climate `config.json`**
 
 Using the facts recorded in Task 3 Step 2 — analytics `G-PV1VZND295`, and the values from the design spec.
 
-- [ ] **Step 2: Generate one redirect per chapter**
+- [x] **Step 2: Generate one redirect per chapter**
 
 For each markdown file at the root of `../without-hot-air`, emit:
 
@@ -473,11 +473,11 @@ For each markdown file at the root of `../without-hot-air`, emit:
 
 Cross-domain absolute targets are confirmed to work for custom-domain sites (`page.tsx:180` uses `r.to` verbatim). Add the `degress` → `degrees` typo redirect from Task 4 Step 3 as well.
 
-- [ ] **Step 3: Extend the checker to gate redirect completeness**
+- [x] **Step 3: Extend the checker to gate redirect completeness**
 
 Add a test and a check: every chapter file in the sibling WHA repo has a matching redirect entry. If the sibling repo is absent, this check **skips with a warning** rather than failing — a checkout without the sibling must still reach green.
 
-- [ ] **Step 4: Verify and commit**
+- [x] **Step 4: Verify and commit**
 
 Run: `scripts/verify.sh` → exit 0. Mark `chapter-redirects` and `climate-config` `passes: true`.
 Commit: `[config/2][m]: add flowershow config with chapter redirects`

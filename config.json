@@ -1,0 +1,292 @@
+{
+  "title": "Life Itself Climate",
+  "description": "Life Itself's ongoing inquiry into the climate crisis",
+  "theme": "lessflowery",
+  "showSidebar": true,
+  "showToc": true,
+  "showBacklinks": true,
+  "analytics": "G-PV1VZND295",
+  "contentExclude": [
+    "/docs",
+    "/scripts",
+    "/README",
+    "/CLAUDE"
+  ],
+  "redirects": [
+    {
+      "from": "/ipcc-special-report-1.5-degress-2018",
+      "to": "/ipcc-special-report-1.5-degrees-2018",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/acknowledgments",
+      "to": "https://withouthotair.org/acknowledgments",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/author",
+      "to": "https://withouthotair.org/author",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/bibliography",
+      "to": "https://withouthotair.org/bibliography",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap01",
+      "to": "https://withouthotair.org/chap01",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap02",
+      "to": "https://withouthotair.org/chap02",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap03",
+      "to": "https://withouthotair.org/chap03",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap04",
+      "to": "https://withouthotair.org/chap04",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap05",
+      "to": "https://withouthotair.org/chap05",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap06",
+      "to": "https://withouthotair.org/chap06",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap07",
+      "to": "https://withouthotair.org/chap07",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap08",
+      "to": "https://withouthotair.org/chap08",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap09",
+      "to": "https://withouthotair.org/chap09",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap10",
+      "to": "https://withouthotair.org/chap10",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap11",
+      "to": "https://withouthotair.org/chap11",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap12",
+      "to": "https://withouthotair.org/chap12",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap13",
+      "to": "https://withouthotair.org/chap13",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap14",
+      "to": "https://withouthotair.org/chap14",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap15",
+      "to": "https://withouthotair.org/chap15",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap16",
+      "to": "https://withouthotair.org/chap16",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap17",
+      "to": "https://withouthotair.org/chap17",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap18",
+      "to": "https://withouthotair.org/chap18",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap19",
+      "to": "https://withouthotair.org/chap19",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap20",
+      "to": "https://withouthotair.org/chap20",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap21",
+      "to": "https://withouthotair.org/chap21",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap22",
+      "to": "https://withouthotair.org/chap22",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap23",
+      "to": "https://withouthotair.org/chap23",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap24",
+      "to": "https://withouthotair.org/chap24",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap25",
+      "to": "https://withouthotair.org/chap25",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap26",
+      "to": "https://withouthotair.org/chap26",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap27",
+      "to": "https://withouthotair.org/chap27",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap28",
+      "to": "https://withouthotair.org/chap28",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap29",
+      "to": "https://withouthotair.org/chap29",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap30",
+      "to": "https://withouthotair.org/chap30",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap31",
+      "to": "https://withouthotair.org/chap31",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chap32",
+      "to": "https://withouthotair.org/chap32",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chapA",
+      "to": "https://withouthotair.org/chapA",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chapB",
+      "to": "https://withouthotair.org/chapB",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chapC",
+      "to": "https://withouthotair.org/chapC",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chapD",
+      "to": "https://withouthotair.org/chapD",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chapE",
+      "to": "https://withouthotair.org/chapE",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chapF",
+      "to": "https://withouthotair.org/chapF",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chapG",
+      "to": "https://withouthotair.org/chapG",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chapH",
+      "to": "https://withouthotair.org/chapH",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chapI",
+      "to": "https://withouthotair.org/chapI",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chapJ",
+      "to": "https://withouthotair.org/chapJ",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/chapK",
+      "to": "https://withouthotair.org/chapK",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/charts",
+      "to": "https://withouthotair.org/charts",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/dedication",
+      "to": "https://withouthotair.org/dedication",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/partI",
+      "to": "https://withouthotair.org/partI",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/partII",
+      "to": "https://withouthotair.org/partII",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/partIII",
+      "to": "https://withouthotair.org/partIII",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/partIV",
+      "to": "https://withouthotair.org/partIV",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/preface",
+      "to": "https://withouthotair.org/preface",
+      "permanent": true
+    },
+    {
+      "from": "/without-hot-air/titlepage",
+      "to": "https://withouthotair.org/titlepage",
+      "permanent": true
+    }
+  ]
+}

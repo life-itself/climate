@@ -93,11 +93,39 @@ export async function check(rootDir) {
   }
 
   // config.json must be valid JSON if present.
+  let config = null;
   if (filesOnDisk.has('config.json')) {
     try {
-      JSON.parse(await readFile(path.join(root, 'config.json'), 'utf8'));
+      config = JSON.parse(await readFile(path.join(root, 'config.json'), 'utf8'));
     } catch (e) {
       errors.push(`config.json is not valid JSON: ${e.message}`);
+    }
+  }
+
+  // Every page in the split-out Without Hot Air repo needs a redirect from its
+  // old URL here, or a link someone published years ago quietly dies. Checked
+  // against the sibling checkout so the list cannot drift out of step with it.
+  const wantsWhaRedirects = (config?.redirects ?? []).some((r) =>
+    String(r.to).includes('withouthotair.org'),
+  );
+  if (wantsWhaRedirects) {
+    const sibling = path.join(root, '..', 'without-hot-air');
+    let siblingPages = [];
+    try {
+      siblingPages = (await readdir(sibling, { withFileTypes: true }))
+        .filter((e) => e.isFile() && MD_EXT.test(e.name) && !SKIP_FILES.has(e.name))
+        .map((e) => e.name.replace(MD_EXT, ''))
+        .filter((slug) => slug !== 'index');
+    } catch {
+      warnings.push(
+        'redirect completeness not checked: ../without-hot-air is not checked out',
+      );
+    }
+    const haveFrom = new Set((config.redirects ?? []).map((r) => String(r.from)));
+    for (const slug of siblingPages) {
+      if (!haveFrom.has(`/without-hot-air/${slug}`)) {
+        errors.push(`config.json: no redirect for /without-hot-air/${slug}`);
+      }
     }
   }
 

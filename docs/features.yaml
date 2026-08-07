@@ -9,6 +9,7 @@
 
 meta:
   checker_baseline_errors: 443
+  current_errors: 0
   # 443 errors against the target structure on the pre-migration tree, at commit
   # e7547a1. Expected: the checker gates the target layout, not today's. This
   # number should fall monotonically as tasks land. It is a progress signal, not
@@ -28,7 +29,7 @@ features:
   - id: site-teardown
     task: 3
     description: tag pre-flowershow, delete site/, workflow and .gitattributes
-    passes: false
+    passes: true
     notes:
       # Facts that only exist inside site/ and must survive its deletion.
       analytics: G-PV1VZND295
@@ -41,7 +42,7 @@ features:
   - id: content-flatten
     task: 4
     description: content/*.md to repo root, home.md -> index.md, degress -> degrees
-    passes: false
+    passes: true
     notes:
       redirect_debt:
         - from: /ipcc-special-report-1.5-degress-2018
@@ -50,27 +51,25 @@ features:
   - id: stop-hook
     task: 5
     description: .claude/settings.json Stop hook running scripts/verify.sh
-    passes: false
-    reason: >-
-      Deliberately deferred. The checker gates the target structure, so wiring a
-      hard gate before Task 4 lands would block every turn. Wire it once
-      verify.sh exits 0.
+    passes: true
+    notes:
+      # Wired after the flatten, once verify.sh could actually exit 0.
 
   - id: notes-split
     task: 6
     description: split notes.md into one file per note
-    passes: false
+    passes: true
 
   - id: asset-normalisation
     task: 7
     description: normalise image paths to /assets, kebab-case filenames, rewrite
       the 389 /img/without-hot-air/... references
-    passes: false
+    passes: true
 
   - id: lfs-removal
     task: 7
     description: no Git LFS pointers remain in the tree
-    passes: false
+    passes: true
     notes:
       # All five assets/ PNGs are LFS pointers in the index AND working tree, and
       # are broken in production (the live site serves the 131-byte pointer with
@@ -84,32 +83,32 @@ features:
     task: 8
     description: replace the dead VegaLite chart with Flowershow LineChart and
       supply the HadCRUT5 CSV
-    passes: false
+    passes: true
 
   - id: wikilink-conversion
     task: 9
     description: internal markdown links converted to wikilinks
-    passes: false
+    passes: true
 
   - id: wha-repo-split
     task: 10
     description: full-history clone refactored into a standalone without-hot-air repo
-    passes: false
+    passes: true
 
   - id: wha-config
     task: 10
     description: config.json for the without-hot-air site
-    passes: false
+    passes: true
 
   - id: chapter-redirects
     task: 11
     description: one permanent redirect per chapter to withouthotair.org
-    passes: false
+    passes: true
 
   - id: climate-config
     task: 11
     description: config.json for the climate site
-    passes: false
+    passes: true
 
   - id: wha-repo-create
     task: 12

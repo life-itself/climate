@@ -73,6 +73,18 @@ test('repo-facing docs are not link-checked', async () => {
   assert.deepEqual(errors, []);
 });
 
+test('a chapter with no redirect is an error', async () => {
+  // fixtures/without-hot-air has chap01 and chap02; the config only redirects chap01.
+  const { errors } = await check(fixture('redirect-site'));
+  assert.match(errors.join('\n'), /no redirect for \/without-hot-air\/chap02/);
+  assert.doesNotMatch(errors.join('\n'), /chap01/);
+});
+
+test('the sibling repo index page needs no redirect', async () => {
+  const { errors } = await check(fixture('redirect-site'));
+  assert.doesNotMatch(errors.join('\n'), /without-hot-air\/index/);
+});
+
 test('orphaned asset is a warning, not an error', async () => {
   const { errors, warnings } = await check(fixture('orphan-asset'));
   assert.deepEqual(errors, []);
