@@ -59,6 +59,7 @@
   "showSidebar": true,
   "showToc": true,
   "showBacklinks": true,
+  "showEditLink": true,
   "analytics": "G-PV1VZND295",
   "contentExclude": [
     "/docs",
