@@ -1,0 +1,16 @@
+{
+  "name": "climate",
+  "private": true,
+  "type": "module",
+  "description": "Tooling only. The published site is plain markdown built by Flowershow.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test scripts/check.test.mjs",
+    "verify": "scripts/verify.sh"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}

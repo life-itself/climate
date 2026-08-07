@@ -1,0 +1,6 @@
+---
+title: [unclosed
+  bad: : :
+---
+
+Body.

@@ -1,0 +1,3 @@
+# Fixtures are byte-exact test data. No filters, ever — the LFS-pointer
+# fixture must stay a literal pointer file.
+* -filter -diff -merge -text

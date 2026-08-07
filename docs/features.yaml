@@ -1,0 +1,158 @@
+# The ledger. One entry per unit of work, each with an explicit `passes`.
+#
+# Never edit this file to make a goal pass. If something cannot meet the gate,
+# leave `passes: false` and record why in `reason`.
+#
+# `human: true` marks work that cannot be done from the repo — it needs a person.
+#
+# Plan: docs/plans/2026-08-07-climate-kb-migration.md
+
+meta:
+  checker_baseline_errors: 443
+  # 443 errors against the target structure on the pre-migration tree, at commit
+  # e7547a1. Expected: the checker gates the target layout, not today's. This
+  # number should fall monotonically as tasks land. It is a progress signal, not
+  # a gate.
+
+features:
+  - id: checker-baseline
+    task: 1
+    description: scripts/check.mjs + tests + verify.sh + init.sh, 14/14 tests green
+    passes: true
+
+  - id: house-rules
+    task: 2
+    description: CLAUDE.md, docs/features.yaml, docs/review-queue.md
+    passes: true
+
+  - id: site-teardown
+    task: 3
+    description: tag pre-flowershow, delete site/, workflow and .gitattributes
+    passes: false
+    notes:
+      # Facts that only exist inside site/ and must survive its deletion.
+      analytics: G-PV1VZND295
+      old_site_title: Life Itself Climate Inquiry
+      cname: climate.lifeitself.org
+      tracked_symlinks_removed_with_site:
+        - site/public/assets -> ../../assets
+        - site/public/img/without-hot-air -> ../../../without-hot-air/Images
+
+  - id: content-flatten
+    task: 4
+    description: content/*.md to repo root, home.md -> index.md, degress -> degrees
+    passes: false
+    notes:
+      redirect_debt:
+        - from: /ipcc-special-report-1.5-degress-2018
+          to: /ipcc-special-report-1.5-degrees-2018
+
+  - id: stop-hook
+    task: 5
+    description: .claude/settings.json Stop hook running scripts/verify.sh
+    passes: false
+    reason: >-
+      Deliberately deferred. The checker gates the target structure, so wiring a
+      hard gate before Task 4 lands would block every turn. Wire it once
+      verify.sh exits 0.
+
+  - id: notes-split
+    task: 6
+    description: split notes.md into one file per note
+    passes: false
+
+  - id: asset-normalisation
+    task: 7
+    description: normalise image paths to /assets, kebab-case filenames, rewrite
+      the 389 /img/without-hot-air/... references
+    passes: false
+
+  - id: lfs-removal
+    task: 7
+    description: no Git LFS pointers remain in the tree
+    passes: false
+    notes:
+      # All five assets/ PNGs are LFS pointers in the index AND working tree, and
+      # are broken in production (the live site serves the 131-byte pointer with
+      # Content-Type image/png). git-lfs is not installed here. Objects confirmed
+      # still present in GitHub LFS storage and retrievable via the batch API with
+      # curl + a gh token — recipe in the plan, task 7 step 1.
+      broken_in_production: true
+      objects_recoverable: true
+
+  - id: chart-port
+    task: 8
+    description: replace the dead VegaLite chart with Flowershow LineChart and
+      supply the HadCRUT5 CSV
+    passes: false
+
+  - id: wikilink-conversion
+    task: 9
+    description: internal markdown links converted to wikilinks
+    passes: false
+
+  - id: wha-repo-split
+    task: 10
+    description: full-history clone refactored into a standalone without-hot-air repo
+    passes: false
+
+  - id: wha-config
+    task: 10
+    description: config.json for the without-hot-air site
+    passes: false
+
+  - id: chapter-redirects
+    task: 11
+    description: one permanent redirect per chapter to withouthotair.org
+    passes: false
+
+  - id: climate-config
+    task: 11
+    description: config.json for the climate site
+    passes: false
+
+  - id: wha-repo-create
+    task: 12
+    description: gh repo create life-itself/without-hot-air --public, then push
+    passes: false
+    human: true
+
+  - id: flowershow-connect-climate
+    task: 13
+    description: connect life-itself/climate as a Flowershow site
+    passes: false
+    human: true
+
+  - id: flowershow-connect-wha
+    task: 13
+    description: connect life-itself/without-hot-air as a Flowershow site
+    passes: false
+    human: true
+
+  - id: dns-climate
+    task: 13
+    description: climate.lifeitself.org CNAME to Flowershow
+    passes: false
+    human: true
+
+  - id: dns-wha
+    task: 13
+    description: withouthotair.org apex A record plus www CNAME
+    passes: false
+    human: true
+
+  - id: live-smoke-check
+    task: 13
+    description: both sites serve over HTTPS, deep pages 200, legacy chapter URLs
+      301 to withouthotair.org, chart renders, bad route 404s
+    passes: false
+    human: true
+
+  - id: ghpages-teardown
+    task: 13
+    description: delete the stale gh-pages branch
+    passes: false
+    human: true
+    reason: >-
+      Blocked on live-smoke-check. Deleting it takes the current live site down,
+      so it must not happen until the replacement is confirmed serving.

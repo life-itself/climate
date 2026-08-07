@@ -33,20 +33,19 @@ status: ready
 
 ---
 
-### Task 1: Checker with a green baseline
+### Task 1: Structural checker
 
-Builds the done condition and gets it passing on the repo *as it is today*, fixing the three pre-existing breakages. The Stop hook is deliberately NOT wired yet — wiring it before the baseline is green would block every subsequent turn.
+Builds the done condition, tested against fixtures. It gates the **target** structure, so it is red against today's tree — that is correct and expected. The Stop hook is wired in Task 5, once the flatten has made green reachable.
 
 **Files:**
 - Create: `package.json`, `scripts/check.mjs`, `scripts/verify.sh`, `scripts/init.sh`
 - Create: `scripts/check.test.mjs`, `scripts/fixtures/` (test fixture trees)
-- Modify: `content/home.md` (dead chart), `content/without-hot-air.md` (missing cover image)
 
 **Interfaces:**
 - Consumes: nothing.
 - Produces: `scripts/verify.sh` (exit 0 = green, the done condition, used by every later task and the Stop hook). `scripts/check.mjs` exports `check(rootDir)` returning `{errors: string[], warnings: string[]}`.
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 `scripts/check.test.mjs`, using `node:test`, over fixture trees under `scripts/fixtures/`:
 
@@ -97,27 +96,31 @@ test('orphaned asset is a warning, not an error', async () => {
 });
 ```
 
-- [ ] **Step 2: Run the tests to verify they fail**
+- [x] **Step 2: Run the tests to verify they fail**
 
 Run: `node --test scripts/check.test.mjs`
 Expected: FAIL — cannot resolve `./check.mjs`.
 
-- [ ] **Step 3: Write `scripts/check.mjs`**
+- [x] **Step 3: Write `scripts/check.mjs`**
 
 Export `check(rootDir)`. Walk the tree, skipping `.git`, `node_modules`, `docs`, `scripts`. Collect:
 
-**Errors** — every markdown file's frontmatter parses via `js-yaml`; every `[[wikilink]]` resolves to a markdown file in the tree (strip any `|alias` and `#anchor` before resolving); every `![](path)` image exists on disk; an `index.md` exists at the root; `config.json` parses as JSON; no file begins with `version https://git-lfs.github.com/spec/`.
+**Errors** — every markdown file's frontmatter parses via `js-yaml`; every `[[wikilink]]` resolves to a markdown file in the tree (strip any `|alias` and `#anchor` before resolving); every `![[embed]]` resolves to a **file** on disk, by exact path or bare filename, the way Obsidian resolves them; every `![](path)` image exists on disk; every `/assets/...` string exists on disk, which is what catches a `<LineChart>` whose CSV is missing; every internal markdown link and reference definition resolves to a page; an `index.md` exists at the root; `config.json` parses as JSON; no file begins with `version https://git-lfs.github.com/spec/`.
+
+Embeds and plain wikilinks must be distinguished by the leading `!` — treating `![[image.png]]` as a page link produces false failures on valid Obsidian content.
+
+Symlinked directories are recorded but not traversed. This repo has three tracked directory symlinks, so a checker that followed them would double-count every chapter.
 
 **Warnings** — a file in `assets/` referenced by nothing. A warning, not an error: deleting an image on a heuristic is worse than carrying it.
 
 Note the check "no reference to `site/`, `content/`, or `_files/`" from the spec is *subsumed* by link and image resolution — once those paths are gone, any surviving reference is a broken link and already fails. Do not add it as a separate gate.
 
-- [ ] **Step 4: Run the tests to verify they pass**
+- [x] **Step 4: Run the tests to verify they pass**
 
 Run: `node --test scripts/check.test.mjs`
-Expected: PASS, 8/8.
+Expected: PASS, 14/14.
 
-- [ ] **Step 5: Write `scripts/verify.sh`**
+- [x] **Step 5: Write `scripts/verify.sh`**
 
 ```bash
 #!/usr/bin/env bash
@@ -129,66 +132,58 @@ node scripts/check.mjs .
 
 `check.mjs` run as a script prints errors and warnings and exits 1 if there are any errors. `chmod +x`.
 
-- [ ] **Step 6: Write `scripts/init.sh`**
+- [x] **Step 6: Write `scripts/init.sh`**
 
 Assert Node major >= 22 with a clear message if not, `corepack enable pnpm`, `pnpm install`, then exec `scripts/verify.sh`. `chmod +x`.
 
-- [ ] **Step 7: Run verify against the real repo and record what fails**
+- [x] **Step 7: Run the checker against the repo and record the gap**
 
-Run: `scripts/verify.sh`
-Expected: FAIL with exactly three pre-existing breakages —
-1. `content/home.md` → `_files/HadCRUT.5.0.1.0.analysis.summary_series.global.annual.csv` missing.
-2. `content/without-hot-air.md` → `/img/without-hot-air/cover.jpg` missing.
-3. `content/without-hot-air` is a symlink into `without-hot-air/src`, so chapter links resolve through it — confirm whether this reads as broken and record the actual behaviour.
+Run: `node scripts/check.mjs .`
 
-If anything *else* fails, stop and record it in `docs/review-queue.md` before proceeding — it means the repo is broken in a way this plan did not anticipate.
+**The checker gates the _target_ structure, not today's.** It will be red until Task 4 lands, because today `index.md` does not exist, content sits under `content/`, and image references use `/img/without-hot-air/...`. This is expected and is why the Stop hook is wired in Task 5, *after* the flatten — not here. Do not soften the checker to make today's tree pass; that is the exact failure the guard rails forbid.
 
-- [ ] **Step 8: Fix the three breakages minimally**
+Record the baseline error count in `docs/features.yaml` under `checker-baseline` so later tasks can show it monotonically decreasing.
 
-Do NOT port the chart yet (that is Task 6). For now remove the dead `<VegaLite>` block from `content/home.md` and leave a one-line HTML comment noting the chart is restored in Task 6. Point the cover image at the real file at `without-hot-air/Images/cover.jpg`.
+- [x] **Step 8: Do NOT "fix" the Obsidian embeds**
 
-- [ ] **Step 9: Run verify to confirm a green baseline**
+`![[Pasted image ....png]]` in `ev-vs-ice.md` and `economic-impact-of-climate-change.md` is valid Obsidian embed syntax. The checker resolves embeds by bare filename against the whole tree. These four render as literal text on the current site because `site/package.json` has no wiki-link remark plugin; Flowershow ships `@flowershow/remark-wiki-link`, so the migration fixes them with no content change. Leave them alone.
 
-Run: `scripts/verify.sh`
-Expected: exit 0.
+- [x] **Step 9: Commit**
 
-- [ ] **Step 10: Commit**
+`[tooling/2][m]: add structural checker for the target structure`
 
-`[tooling/2][m]: add structural checker and reach green baseline`
+**Known pre-existing production breakage** (confirmed, for the record): the `<VegaLite>` chart on the home page is dead — no `_files/` directory is tracked anywhere — and the four Obsidian embeds above do not render. Everything else resolves through three tracked symlinks: `content/without-hot-air` → `../without-hot-air/src`, `site/public/img/without-hot-air` → `../../../without-hot-air/Images`, and `site/public/assets` → `../../assets`. Deleting `site/` in Task 3 removes the latter two, which is why Task 7's `/img/without-hot-air/…` → `/assets/…` rewrite across 389 references is load-bearing, not cosmetic.
 
 ---
 
-### Task 2: Wire the hard gate and the ledger
+### Task 2: House rules and the ledger
+
+The Stop hook is deliberately NOT part of this task — see Task 5. Wiring a hard gate against a structure that does not exist yet would block every turn from here to Task 4.
 
 **Files:**
-- Create: `.claude/settings.json`, `CLAUDE.md`, `docs/features.yaml`, `docs/review-queue.md`
+- Create: `CLAUDE.md`, `docs/features.yaml`, `docs/review-queue.md`
 
 **Interfaces:**
 - Consumes: `scripts/verify.sh` from Task 1.
 - Produces: `docs/features.yaml`, the ledger every later task updates.
 
-- [ ] **Step 1: Write `.claude/settings.json` with the Stop hook**
-
-A `Stop` hook running `scripts/verify.sh`. This is the gate `/goal` cannot argue with.
-
-- [ ] **Step 2: Write `CLAUDE.md`**
+- [x] **Step 1: Write `CLAUDE.md`**
 
 The verify command, ledger location, commit convention, and the guard rails verbatim from Global Constraints above.
 
-- [ ] **Step 3: Write `docs/features.yaml`**
+- [x] **Step 2: Write `docs/features.yaml`**
 
 One entry per unit below, each `passes: false` initially, each with a `human: true` flag where a person is required:
 
 `checker-baseline`, `stop-hook`, `site-teardown`, `content-flatten`, `notes-split`, `asset-normalisation`, `lfs-removal`, `chart-port`, `wikilink-conversion`, `climate-config`, `wha-repo-split`, `wha-config`, `chapter-redirects`, `wha-repo-create` (human), `flowershow-connect-climate` (human), `flowershow-connect-wha` (human), `dns-climate` (human), `dns-wha` (human), `live-smoke-check` (human).
 
-- [ ] **Step 4: Write `docs/review-queue.md`**
+- [x] **Step 3: Write `docs/review-queue.md`**
 
 Empty with a header explaining what belongs here: judgement calls the checker must not pretend to grade.
 
-- [ ] **Step 5: Verify and commit**
+- [x] **Step 4: Commit**
 
-Run: `scripts/verify.sh` → exit 0. Mark `checker-baseline` and `stop-hook` `passes: true`.
-Commit: `[tooling/2][m]: wire stop hook, ledger and house rules`
+Commit: `[tooling/2][m]: add ledger, review queue and house rules`
 
 ---
 
@@ -205,7 +200,7 @@ This is the only recovery path for `site/` other than history. Do it before dele
 
 - [ ] **Step 2: Record the two facts `site/` holds that must survive**
 
-From `site/config/siteConfig.js`: analytics key `G-PV1VZND295`, title `Life Itself Climate Inquiry`. From `site/public/CNAME`: `climate.lifeitself.org`. These feed Task 9's `config.json`. Write them into `docs/features.yaml` under the `climate-config` entry as a `notes:` field so they cannot be lost.
+From `site/config/siteConfig.js`: analytics key `G-PV1VZND295`, title `Life Itself Climate Inquiry`. From `site/public/CNAME`: `climate.lifeitself.org`. These feed Task 11's `config.json`. Write them into `docs/features.yaml` under the `climate-config` entry as a `notes:` field so they cannot be lost.
 
 - [ ] **Step 3: Delete**
 
@@ -220,7 +215,7 @@ Commit: `[site/3][l]: remove next.js app, deploy to flowershow instead`
 
 - [ ] **Step 5: Delete the stale gh-pages branch**
 
-`git push origin --delete gh-pages`. **Outward-facing** — this takes the current live site down, so it must happen only after the Flowershow site is confirmed live (Task 12). Leave `passes: false` and note the dependency; do not do it now.
+`git push origin --delete gh-pages`. **Outward-facing** — this takes the current live site down, so it must happen only after the Flowershow site is confirmed live (Task 13). Leave `passes: false` and note the dependency; do not do it now.
 
 ---
 
@@ -233,7 +228,7 @@ Commit: `[site/3][l]: remove next.js app, deploy to flowershow instead`
 
 - [ ] **Step 1: Remove the symlink first**
 
-`git rm content/without-hot-air`. It points at `../without-hot-air/src`; leaving it would make the moves resolve strangely. WHA content is handled in Task 9 and is not moved to the root here.
+`git rm content/without-hot-air`. It points at `../without-hot-air/src`; leaving it would make the moves resolve strangely. WHA content is handled in Task 10 and is not moved to the root here.
 
 - [ ] **Step 2: Move each file with `git mv`**
 
@@ -241,7 +236,7 @@ Use `git mv` so history follows. `content/home.md` → `index.md`. Fix the `degr
 
 - [ ] **Step 3: Note the redirect debt created**
 
-The typo fix changes a live URL. Add `/ipcc-special-report-1.5-degress-2018` → `/ipcc-special-report-1.5-degrees-2018` to the `climate-config` notes in `docs/features.yaml` so Task 9 picks it up.
+The typo fix changes a live URL. Add `/ipcc-special-report-1.5-degress-2018` → `/ipcc-special-report-1.5-degrees-2018` to the `climate-config` notes in `docs/features.yaml` so Task 11 picks it up.
 
 - [ ] **Step 4: Update every internal link that pointed into `content/`**
 
@@ -254,7 +249,28 @@ Commit: `[content/3][l]: flatten content to repo root for flowershow`
 
 ---
 
-### Task 5: Split `notes.md` into one file per note
+### Task 5: Wire the hard gate
+
+Runs **after** Task 4's flatten, when the checker can actually be green.
+
+**Files:**
+- Create: `.claude/settings.json`
+
+- [ ] **Step 1: Confirm the checker is green first**
+
+Run: `scripts/verify.sh` → must exit 0. If it does not, fix the tree — never the checker.
+
+- [ ] **Step 2: Write `.claude/settings.json` with a `Stop` hook running `scripts/verify.sh`**
+
+This is the gate `/goal` cannot argue its way past.
+
+- [ ] **Step 3: Mark `checker-baseline` and `stop-hook` `passes: true`, commit**
+
+Commit: `[tooling/1][s]: wire verify.sh as a stop hook`
+
+---
+
+### Task 6: Split `notes.md` into one file per note
 
 **Files:**
 - Delete: `notes.md`
@@ -285,28 +301,52 @@ Commit: `[content/2][m]: split notes.md into one file per note`
 
 ---
 
-### Task 6: Normalise assets and remove LFS
+### Task 7: Normalise assets and remove LFS
 
 **Files:**
-- Move: `assets/*` stays; `without-hot-air/Images/*` is left in place for Task 9
+- Move: `assets/*` stays; `without-hot-air/Images/*` is left in place for Task 10
 - Modify: every markdown file referencing an image
 
-- [ ] **Step 1: Confirm no LFS pointers remain**
+- [ ] **Step 1: Recover the five LFS-pointered images**
 
-`.gitattributes` went in Task 3, but existing blobs may still be pointers. Run `git lfs ls-files` (if `git-lfs` is installed) and grep the tree for the pointer header. If pointers exist, fetch the real files with `git lfs pull` and commit them as normal blobs.
+**Confirmed state:** all five files in `assets/` are Git LFS *pointers*, both in the index and in the working tree, and `git-lfs` is not installed on this machine. They are also **broken in production** — `climate.lifeitself.org` serves a 131-byte pointer with `Content-Type: image/png`, because the 2021 workflow used `actions/checkout@v2.3.1` with no `lfs: true`. So this step fixes a live bug, it is not housekeeping.
 
-- [ ] **Step 2: Normalise every image reference to `/assets/<file>`**
+The objects are still in GitHub's LFS storage and are retrievable without installing `git-lfs`. Verified recipe, per file:
+
+```bash
+oid=$(git show ":assets/<file>" | sed -n 's/^oid sha256://p')
+size=$(git show ":assets/<file>" | sed -n 's/^size //p')
+curl -s -X POST "https://github.com/life-itself/climate.git/info/lfs/objects/batch" \
+  -u "rufuspollock:$(gh auth token)" \
+  -H "Accept: application/vnd.git-lfs+json" \
+  -H "Content-Type: application/vnd.git-lfs+json" \
+  -d "{\"operation\":\"download\",\"transfers\":[\"basic\"],\"objects\":[{\"oid\":\"$oid\",\"size\":$size}]}"
+```
+
+Then GET the returned `actions.download.href` (pre-signed, expires in 1h) and write it over the pointer file. Verify the result: byte count matches `size`, and the file starts with the PNG magic number `\x89PNG`. Do not accept a download whose length disagrees with the pointer.
+
+Install `git-lfs` and use `git lfs pull` instead if you prefer — but do not make it a prerequisite of `init.sh`, which must work on a machine without it.
+
+- [ ] **Step 2: Confirm the checker goes quiet**
+
+`node scripts/check.mjs .` must stop reporting `is a Git LFS pointer`. The checker sniffs any file under 1KB for the pointer header, so a partial recovery cannot slip through.
+
+- [ ] **Step 3: Normalise every image reference to `/assets/<file>`**
 
 The existing `assets/` filenames include spaces (`Pasted image 20220702193419.png`). Rename to kebab-case with `git mv` and update references — spaces in URLs are a persistent source of breakage.
 
-- [ ] **Step 3: Verify and commit**
+- [ ] **Step 4: Rewrite the 389 `/img/without-hot-air/...` references**
+
+These currently resolve only through the `site/public/img/without-hot-air` symlink, which Task 3 deleted. Rewrite them to `/assets/<file>`; the figures move in Task 10 when the WHA repo is split, so in this repo the rewrite is limited to `without-hot-air.md`'s cover image.
+
+- [ ] **Step 5: Verify and commit**
 
 Run: `scripts/verify.sh` → exit 0 with no LFS error. Mark `asset-normalisation` and `lfs-removal` `passes: true`.
 Commit: `[assets/2][m]: normalise asset paths, drop git-lfs`
 
 ---
 
-### Task 7: Restore the temperature chart
+### Task 8: Restore the temperature chart
 
 **Files:**
 - Create: `assets/hadcrut5-global-annual.csv`
@@ -320,7 +360,7 @@ The original VegaLite spec read a HadCRUT5 global annual summary series. Downloa
 
 The old spec used `Time` and `Anomaly (deg C)`. Verify against the file actually downloaded; HadCRUT column headers have changed across releases. Use the real headers, not the remembered ones.
 
-- [ ] **Step 3: Replace the HTML comment from Task 1 with the Flowershow component**
+- [ ] **Step 3: Replace the dead `<VegaLite>` block with the Flowershow component**
 
 ```jsx
 <LineChart
@@ -335,7 +375,7 @@ JSX works in plain `.md` in Flowershow — no `.mdx` rename needed.
 
 - [ ] **Step 4: Add to the review queue**
 
-Whether the chart *renders correctly* cannot be checked locally — Flowershow builds it server-side. Add "confirm temperature chart renders" to `docs/review-queue.md`, to be checked during Task 12's smoke check.
+Whether the chart *renders correctly* cannot be checked locally — Flowershow builds it server-side. Add "confirm temperature chart renders" to `docs/review-queue.md`, to be checked during Task 13's smoke check.
 
 - [ ] **Step 5: Verify and commit**
 
@@ -344,7 +384,7 @@ Commit: `[content/2][m]: restore temperature chart using flowershow LineChart`
 
 ---
 
-### Task 8: Convert internal links to wikilinks
+### Task 9: Convert internal links to wikilinks
 
 **Files:**
 - Modify: every markdown file at the root
@@ -360,7 +400,7 @@ Commit: `[content/2][m]: convert internal links to wikilinks`
 
 ---
 
-### Task 9: Split out the Without Hot Air repo
+### Task 10: Split out the Without Hot Air repo
 
 **Files:**
 - Create: `../without-hot-air/` (a full clone, then refactored)
@@ -370,7 +410,7 @@ Per the design: clone the whole repo with full history, then one refactor commit
 
 - [ ] **Step 1: Clone**
 
-`git clone . ../without-hot-air` then repoint `origin` to `git@github.com:life-itself/without-hot-air.git`. Do not create the GitHub repo yet — that is Task 11.
+`git clone . ../without-hot-air` then repoint `origin` to `git@github.com:life-itself/without-hot-air.git`. Do not create the GitHub repo yet — that is Task 12.
 
 - [ ] **Step 2: Promote `without-hot-air/src/*` to the root and delete everything else**
 
@@ -414,7 +454,7 @@ A short page introducing the book and linking to `https://withouthotair.org`. Th
 
 ---
 
-### Task 10: Generate the chapter redirects
+### Task 11: Generate the chapter redirects
 
 **Files:**
 - Modify: `config.json` (climate repo), created here
@@ -444,7 +484,7 @@ Commit: `[config/2][m]: add flowershow config with chapter redirects`
 
 ---
 
-### Task 11: Create and push the GitHub repo — HUMAN GATE
+### Task 12: Create and push the GitHub repo — HUMAN GATE
 
 - [ ] **Step 1: Confirm before creating**
 
@@ -458,7 +498,7 @@ Then `git push -u origin main` and push no tags.
 
 ---
 
-### Task 12: Connect, point DNS, smoke check — HUMAN GATE
+### Task 13: Connect, point DNS, smoke check — HUMAN GATE
 
 None of this is doable from the repo. Each step stays `passes: false` until a human confirms it.
 
