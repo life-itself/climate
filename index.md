@@ -2,6 +2,10 @@
 title: Life Itself Climate Inquiry
 description: Life Itself's ongoing inquiry into the climate crisis 🌍🔥
 author: Rufus Pollock
+# LineChart is a React component, so this page must be parsed as MDX. The
+# site-wide default is "auto", which parses .md as plain Markdown - which is
+# why the chart previously rendered as nothing.
+syntaxMode: mdx
 showHero: true
 cta:
   - href: "#start-here"
@@ -126,9 +130,9 @@ As of 2021, we are not following that pathway and hence net zero should already 
 
 From the IPCC 1.5 report in 2018: https://www.ipcc.ch/sr15/chapter/chapter-2/
 
-> Cumulative CO2 emissions are kept within a budget by reducing global annual CO2 emissions to net zero. This assessment suggests a remaining budget of about 420 GtCO2 for a two-thirds chance of limiting warming to 1.5°C, and of about 580 GtCO2 for an even chance (medium confidence). The remaining carbon budget is defined here as cumulative CO2 emissions from the start of 2018 until the time of net zero global emissions for global warming defined as a change in global near-surface air temperatures. Remaining budgets applicable to 2100 would be approximately 100 GtCO2 lower than this to account for permafrost thawing and potential methane release from wetlands in the future, and more thereafter. These estimates come with an additional geophysical uncertainty of at least ±400 GtCO2, related to non-CO2 response and TCRE distribution. Uncertainties in the level of historic warming contribute ±250 GtCO2. In addition, these estimates can vary by ±250 GtCO2 depending on non-CO2 mitigation strategies as found in available pathways. {2.2.2, 2.6.1}
+> Cumulative CO2 emissions are kept within a budget by reducing global annual CO2 emissions to net zero. This assessment suggests a remaining budget of about 420 GtCO2 for a two-thirds chance of limiting warming to 1.5°C, and of about 580 GtCO2 for an even chance (medium confidence). The remaining carbon budget is defined here as cumulative CO2 emissions from the start of 2018 until the time of net zero global emissions for global warming defined as a change in global near-surface air temperatures. Remaining budgets applicable to 2100 would be approximately 100 GtCO2 lower than this to account for permafrost thawing and potential methane release from wetlands in the future, and more thereafter. These estimates come with an additional geophysical uncertainty of at least ±400 GtCO2, related to non-CO2 response and TCRE distribution. Uncertainties in the level of historic warming contribute ±250 GtCO2. In addition, these estimates can vary by ±250 GtCO2 depending on non-CO2 mitigation strategies as found in available pathways. \{2.2.2, 2.6.1\}
 > 
-> Staying within a remaining carbon budget of 580 GtCO2 implies that CO2 emissions reach carbon neutrality in about 30 years, reduced to 20 years for a 420 GtCO2 remaining carbon budget (high confidence). The ±400 GtCO2 geophysical uncertainty range surrounding a carbon budget translates into a variation of this timing of carbon neutrality of roughly ±15–20 years. If emissions do not start declining in the next decade, the point of carbon neutrality would need to be reached at least two decades earlier to remain within the same carbon budget. {2.2.2, 2.3.5}
+> Staying within a remaining carbon budget of 580 GtCO2 implies that CO2 emissions reach carbon neutrality in about 30 years, reduced to 20 years for a 420 GtCO2 remaining carbon budget (high confidence). The ±400 GtCO2 geophysical uncertainty range surrounding a carbon budget translates into a variation of this timing of carbon neutrality of roughly ±15–20 years. If emissions do not start declining in the next decade, the point of carbon neutrality would need to be reached at least two decades earlier to remain within the same carbon budget. \{2.2.2, 2.3.5\}
 
 Here's a key diagram from IPCC SR15:
 
