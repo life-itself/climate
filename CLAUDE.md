@@ -19,7 +19,13 @@ After deploying, also run the live-site checks:
 node scripts/smoke.mjs
 ```
 
-Driven by `smoke.json`. It catches what `verify.sh` structurally cannot — a page
+and the browser checks:
+
+```
+node scripts/visual.mjs              # add SCREENSHOTS=1 to write screenshots/
+```
+
+Driven by `smoke.json` and `visual.json`. They catch what `verify.sh` structurally cannot — a page
 that is perfectly valid markdown but renders wrongly, which is what every bug
 that reached production during the migration turned out to be. Not in the Stop
 hook: it needs network and would fail spuriously mid-deploy. See

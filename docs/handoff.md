@@ -24,9 +24,9 @@ None were caught by `verify.sh`, and none *could* have been: it checks that the
 repository is structurally sound, which every one of those pages was. **The
 failure was always in rendering, and nothing was looking at the rendered page.**
 
-That is now closed by `scripts/smoke.mjs`.
+That is now closed by `scripts/smoke.mjs` and `scripts/visual.mjs`.
 
-## The two gates
+## The three gates
 
 **`scripts/verify.sh`** — offline, fast, no network. Frontmatter parses, links
 and embeds resolve, referenced files exist, config is valid JSON, no LFS
@@ -41,21 +41,42 @@ appears as its own markup; unrendered LaTeX appears as backslash commands; a
 failed embed appears as `[[brackets]]`; an unfetched LFS object appears as
 pointer text.
 
-Deliberately *not* in the Stop hook: it needs network, and it would fail
-spuriously mid-deploy. Run it after a deploy settles.
+**`scripts/visual.mjs`** — loads pages in headless chromium, driven by
+`visual.json`. Asserts that elements actually rendered *after JavaScript ran*,
+that expected text is in `document.body.innerText` (so hidden nav duplicates
+don't count), that no image decoded to zero width, and that the console is
+clean. `SCREENSHOTS=1` also writes full-page screenshots for a human to glance
+at.
+
+This is the only gate that can see the difference between "the markup is
+correct" and "the reader sees a chart". The temperature chart is the case in
+point: correct markup, CSV served, valid HTML — and nothing drawn, because the
+component never mounted.
+
+Neither of the last two belongs in the Stop hook: they need network and would
+fail spuriously mid-deploy.
 
 ```bash
-scripts/verify.sh                 # before committing
-node scripts/smoke.mjs            # a minute or two after pushing
+scripts/verify.sh                    # before committing        (offline)
+node scripts/smoke.mjs               # after a deploy settles   (HTTP)
+node scripts/visual.mjs              # after a deploy settles   (browser)
+SCREENSHOTS=1 node scripts/visual.mjs   # + screenshots/ to eyeball
 ```
+
+Both gates earned their place immediately. `smoke.mjs` caught the unrendered
+LaTeX on three chapters of without-hot-air, and `visual.mjs` independently
+confirmed it at the render level — no `.katex` elements on the page — without
+being told what to look for.
 
 ## What still needs a human, and why
 
-**Credential- and UI-bound.** Not judgement — just access an agent does not have:
+**Credential- and UI-bound.** Not judgement — just access an agent does not
+have. Both sites are already connected and their DNS is set, so none of this is
+outstanding; it matters for the *next* change made unattended:
 
 | Task | What would remove the block |
 |---|---|
-| Connecting a repo as a Flowershow site | A Flowershow API token or CLI auth |
+| Changing a site's Flowershow settings, or connecting a new one | A Flowershow API token or CLI auth |
 | DNS records | A Cloudflare API token, scoped to DNS edit on the specific zones |
 | Registering a domain | Nothing — keep this human, it spends money |
 | Revoking a leaked third-party token | Access to that service |
@@ -82,15 +103,15 @@ In rough order of value:
    either stops and waits, or guesses confidently and wrongly. The migration ran
    as far as it did because ~16 decisions were settled in one pass before any
    code was written.
-2. **A visual check.** `smoke.mjs` catches *leaked source syntax*, which is most
-   of the class — but not "the layout is broken" or "the chart draws but is
-   unreadable". A headless browser (Playwright) taking screenshots, or simply
-   rendering and asserting on element geometry, would close the rest. This is
-   the obvious next investment.
-3. **Scoped API tokens** for Flowershow and Cloudflare, per the table above.
-4. **Standing preferences written down**, so taste does not have to be asked for
+2. **Scoped API tokens** for Flowershow and Cloudflare, per the table above.
+   These are now the main remaining hard blocks.
+3. **Standing preferences written down**, so taste does not have to be asked for
    each time — commit format, prose conventions, what belongs in a review queue
    rather than a gate. Much of this now lives in `CLAUDE.md`.
+4. **Judgement on aesthetics** is the honest residue. `visual.mjs` can prove a
+   chart drew; it cannot say the page looks good. `SCREENSHOTS=1` narrows even
+   that, by making a visual review a glance at a folder rather than a click
+   through a site.
 
 ## The habit that made the difference
 

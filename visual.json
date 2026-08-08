@@ -1,0 +1,37 @@
+{
+  "base": "https://climate.lifeitself.org",
+  "pages": [
+    {
+      "path": "/",
+      "mustRender": [
+        ".chart-wrapper svg"
+      ],
+      "visibleText": [
+        "A working knowledge base",
+        "Start here",
+        "Anomaly (deg C)"
+      ]
+    },
+    {
+      "path": "/actions",
+      "visibleText": [
+        "What Actions Can we Take"
+      ]
+    },
+    {
+      "path": "/changelog",
+      "visibleText": [
+        "Without the Hot Air has moved"
+      ]
+    },
+    {
+      "path": "/ev-vs-ice"
+    },
+    {
+      "path": "/without-hot-air-project",
+      "visibleText": [
+        "August and September 2021"
+      ]
+    }
+  ]
+}
