@@ -69,7 +69,8 @@
     "/docs",
     "/scripts",
     "/README",
-    "/CLAUDE"
+    "/CLAUDE",
+    "/smoke"
   ],
   "redirects": [
     {

@@ -1,0 +1,20 @@
+{
+  "base": "https://climate.lifeitself.org",
+  "pages": [
+    { "path": "/", "contains": ["A working knowledge base", "Start here", "hadcrut5-global-annual.csv"] },
+    { "path": "/actions" },
+    { "path": "/carbon-pricing" },
+    { "path": "/notes" },
+    { "path": "/changelog", "contains": ["Without the Hot Air has moved"] },
+    { "path": "/without-hot-air-project", "contains": ["August and September 2021"] },
+    { "path": "/ipcc-special-report-1.5-degrees-2018" },
+    { "path": "/no-such-page-should-404", "status": 404 },
+    { "path": "/without-hot-air", "status": 308, "to": "https://withouthotair.org" },
+    { "path": "/without-hot-air/chap01", "status": 308, "to": "https://withouthotair.org/chap01" },
+    { "path": "/ipcc-special-report-1.5-degress-2018", "status": 308, "to": "https://climate.lifeitself.org/ipcc-special-report-1.5-degrees-2018" }
+  ],
+  "assets": [
+    { "path": "/assets/hadcrut5-global-annual.csv", "minBytes": 5000 },
+    { "path": "/assets/relative-impact-of-various-actions-on-ghg-emissions-20220129232401.png", "minBytes": 50000, "magic": "89504e47" }
+  ]
+}

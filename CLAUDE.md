@@ -13,6 +13,18 @@ scripts/verify.sh
 Exit 0 means the tree is structurally sound. `scripts/init.sh` brings a cold
 checkout to that point in one command.
 
+After deploying, also run the live-site checks:
+
+```
+node scripts/smoke.mjs
+```
+
+Driven by `smoke.json`. It catches what `verify.sh` structurally cannot — a page
+that is perfectly valid markdown but renders wrongly, which is what every bug
+that reached production during the migration turned out to be. Not in the Stop
+hook: it needs network and would fail spuriously mid-deploy. See
+[docs/handoff.md](docs/handoff.md).
+
 `verify.sh` gates only what is machine-decidable: frontmatter parses, wikilinks
 and embeds resolve, referenced files exist, `config.json` is valid, no Git LFS
 pointers. Judgement calls — does this read well, does the site look right, did a
