@@ -32,16 +32,12 @@ So they come here instead, and get resolved in conversation.
       were too long to use verbatim. Body prose is untouched, typos included
       ("somthing", "discusison"). Check the names and whether you want the typos
       fixed.
-- [ ] **The temperature chart** (task 8) — confirmed live that the CSV is served
-      (200, `text/csv`, 7022 bytes) and the component references it, but
-      `<LineChart>` draws client-side so the served HTML contains no SVG.
-      Whether it actually renders needs a human with a browser.
-- [ ] **The Chatwoot live-chat widget is gone.** The old `site/pages/_app.js`
-      loaded Chatwoot unconditionally (`websiteToken: tc1GJE9wAmNSHGVUUa8gDLcd`,
-      app.chatwoot.com). Flowershow's `config.json` has no arbitrary-script
-      slot, so this cannot be reproduced from the repo. Decide whether you want
-      it back — it may be reachable through the dashboard, or it may simply be
-      something that quietly ran for years and nobody used.
+- [ ] **The temperature chart** (task 8) — it was rendering as nothing, because
+      the page lacked `syntaxMode: mdx` and `<LineChart>` was parsed as text.
+      Now fixed: the page compiles to `_jsx(LineChart, {...})`. The CSV serves
+      (200, `text/csv`, 7022 bytes). It still hydrates client-side, so whether
+      it actually *draws* needs a human with a browser — if it comes up empty,
+      suspect the column name `Anomaly (deg C)`.
 - [ ] **Home page tab title reads twice**: "Life Itself Climate Inquiry | Life
       Itself Climate Inquiry 🌍🔥", because the page title and the site-wide
       suffix are the same string. Subpages are fine ("Carbon Pricing | Life
@@ -68,16 +64,15 @@ So they come here instead, and get resolved in conversation.
       dated caveat. This is the largest piece of genuine content work the
       migration surfaces, and it is out of scope for the migration itself.
 
-- [ ] **`withouthotair.org` is proxied through Cloudflare**, not pointed at
-      Vercel directly — its A records are `188.114.96.2` / `188.114.97.2`, which
-      are Cloudflare proxy addresses, whereas `climate.lifeitself.org` resolves
-      to `vercel-dns-016.com`. It works and serves valid TLS, so this is not
-      urgent, but it is the most likely cause of the SSL trouble seen during
-      setup: an orange-cloud proxy in front of Vercel needs SSL mode "Full
-      (strict)" or it breaks. Switching the record to DNS-only (grey cloud) is
-      the configuration Flowershow's docs assume. Worth a look before it bites
-      during a certificate renewal.
-
 ## Resolved
 
-_None yet._
+- [x] **The temperature chart.** Was rendering as nothing: the page lacked
+      `syntaxMode: mdx`, so `<LineChart>` was parsed as text. Fixed 2026-08-08
+      and confirmed drawing.
+- [x] **Chatwoot live-chat widget — retired** (#40). Gone with `site/`; neither
+      live site serves it. The website token remains in git history at tag
+      `pre-flowershow`, so it should be revoked in Chatwoot.
+- [x] **`withouthotair.org` DNS** (#41). Was on Cloudflare proxy addresses
+      (`188.114.96.2`/`188.114.97.2`); now resolves to Vercel
+      (`216.150.16.193`/`216.150.1.193`) with clean certificate verification.
+      This was the cause of the SSL trouble during setup.
