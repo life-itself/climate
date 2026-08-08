@@ -75,8 +75,15 @@ does not.
 
 ## Current work
 
-Migration from a bespoke Next.js site to Flowershow, and splitting out
-Without Hot Air. See:
+The Flowershow migration is **done** (2026-08-08) — see
+`docs/plans/2026-08-07-climate-kb-migration.md` and its design spec in
+`docs/superpowers/specs/`. Both sites are live and all three gates are green.
 
-- `docs/superpowers/specs/2026-08-07-climate-kb-design.md` — the design
-- `docs/plans/2026-08-07-climate-kb-migration.md` — the task-by-task plan
+**Next up, and where to start if you are picking this up cold:**
+
+- **Sharing / marketing** — `docs/sharing.md`. Still a stub: it captures the
+  thinking and the evidence, and needs turning into a plan. Gated on the book
+  update below having something to show.
+- **Revising the book** — `docs/plans/2026-08-08-revising-the-book.md` in the
+  `without-hot-air` repo. Written to be picked up cold.
+- Open work is in GitHub issues; `docs/review-queue.md` holds cosmetic notes.

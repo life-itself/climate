@@ -74,16 +74,18 @@ being told what to look for.
 have. Both sites are already connected and their DNS is set, so none of this is
 outstanding; it matters for the *next* change made unattended:
 
-| Task | What would remove the block |
+| Task | Status |
 |---|---|
-| Changing a site's Flowershow settings, or connecting a new one | A Flowershow API token or CLI auth |
-| DNS records | A Cloudflare API token, scoped to DNS edit on the specific zones |
-| Registering a domain | Nothing — keep this human, it spends money |
-| Revoking a leaked third-party token | Access to that service |
+| DNS records | **Available.** Token at `~/.config/cloudflare/apikey-edit-zones` — verified active, 45 zones including `withouthotair.org` and `lifeitself.org` |
+| GitHub: repos, pushes, issues, LFS objects | **Available** via `gh` auth; all used unattended during the migration |
+| Changing a site's Flowershow settings, or connecting a new one | **Blocked** — needs a Flowershow API token or CLI auth. The only remaining hard block |
+| Registering a domain | Human, deliberately — it spends money. Nothing outstanding |
+| Revoking a leaked third-party token | Human — needs access to that service |
 
-Worth noting `gh` auth already covers a lot: creating repos, pushing, filing and
-closing issues, transferring issues, and reading LFS objects all worked
-unattended this time.
+So the credential surface is nearly closed. Flowershow is the one gap, and since
+`config.json` is version-controlled and takes precedence over dashboard
+settings, most site configuration is already reachable through the repo anyway —
+the dashboard is only needed to connect a *new* site.
 
 **Genuinely yours.** These should stay human even with perfect tooling, because
 getting them wrong is expensive and an agent's judgement is not the point:
@@ -103,8 +105,7 @@ In rough order of value:
    either stops and waits, or guesses confidently and wrongly. The migration ran
    as far as it did because ~16 decisions were settled in one pass before any
    code was written.
-2. **Scoped API tokens** for Flowershow and Cloudflare, per the table above.
-   These are now the main remaining hard blocks.
+2. **A Flowershow API token**, per the table above — the last credential gap.
 3. **Standing preferences written down**, so taste does not have to be asked for
    each time — commit format, prose conventions, what belongs in a review queue
    rather than a gate. Much of this now lives in `CLAUDE.md`.
