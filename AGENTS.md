@@ -52,13 +52,14 @@ does not.
 - **Never edit `docs/features.yaml` to self-certify.** The ledger records what
   the checker found, not what you would like it to have found.
 - **Never rewrite or force-push `main`.**
-- **Fixes go in the generator, never in its output.** `extract.py` produces the
-  Without Hot Air chapter markdown — fix the script and re-run; never hand-patch
-  a generated chapter.
+- **Fixes go in the generator, never in its output.** Where a file is produced
+  by a script, fix the script and re-run rather than patching what it emitted.
 - **Stop and report after 3 identical consecutive failures.** Do not keep
   retrying the same approach.
 - Outward-facing steps need a human: creating a public GitHub repo, deleting a
-  remote branch, DNS changes, connecting a Flowershow site.
+  remote branch, connecting a Flowershow site. DNS *is* automatable — there is a
+  Cloudflare token at `~/.config/cloudflare/apikey-edit-zones` — but changing a
+  live record still warrants asking. See `docs/handoff.md`.
 
 ## Conventions
 
