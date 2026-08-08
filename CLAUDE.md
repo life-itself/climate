@@ -57,3 +57,12 @@ Without Hot Air. See:
 
 - `docs/superpowers/specs/2026-08-07-climate-kb-design.md` — the design
 - `docs/plans/2026-08-07-climate-kb-migration.md` — the task-by-task plan
+
+## Session checkpoints
+
+When stopping work:
+
+1. Summarize what changed.
+2. Identify the next action, or mark `needs-planning`.
+3. Update the repository root `NEXT.md` with the current checkpoint.
+4. Link a GitHub issue only when shared tracking is useful.
