@@ -48,6 +48,10 @@
         "title": "This site",
         "links": [
           {
+            "name": "Changelog",
+            "href": "/changelog"
+          },
+          {
             "name": "Without the Hot Air",
             "href": "https://withouthotair.org"
           }
