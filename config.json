@@ -70,6 +70,7 @@
     "/scripts",
     "/README",
     "/CLAUDE",
+    "/AGENTS",
     "/smoke"
   ],
   "redirects": [

@@ -23,7 +23,7 @@ scripts/init.sh      # cold start: install deps and verify
 scripts/verify.sh    # the checks: links resolve, images exist, frontmatter parses
 ```
 
-Conventions and guard rails are in [CLAUDE.md](CLAUDE.md).
+Conventions and guard rails are in [AGENTS.md](AGENTS.md) (`CLAUDE.md` symlinks to it).
 
 ## Without the Hot Air
 

@@ -108,7 +108,7 @@ In rough order of value:
 2. **A Flowershow API token**, per the table above — the last credential gap.
 3. **Standing preferences written down**, so taste does not have to be asked for
    each time — commit format, prose conventions, what belongs in a review queue
-   rather than a gate. Much of this now lives in `CLAUDE.md`.
+   rather than a gate. Much of this now lives in `AGENTS.md`.
 4. **Judgement on aesthetics** is the honest residue. `visual.mjs` can prove a
    chart drew; it cannot say the page looks good. `SCREENSHOTS=1` narrows even
    that, by making a visual review a glance at a folder rather than a click
