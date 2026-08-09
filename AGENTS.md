@@ -84,9 +84,13 @@ The Flowershow migration is **done** (2026-08-08) — see
 
 **Next up, and where to start if you are picking this up cold:**
 
-- **Sharing / marketing** — `docs/sharing.md`. Still a stub: it captures the
-  thinking and the evidence, and needs turning into a plan. Gated on the book
-  update below having something to show.
+- **Sharing / marketing** — `docs/sharing.md`. Now a draft plan (2026-08-09),
+  not a stub: the book update it was gated on has something real to show. Its
+  own conclusion is that the human read-through below, not more update work,
+  is what launch is actually waiting on.
 - **Revising the book** — `docs/plans/2026-08-08-revising-the-book.md` in the
-  `without-hot-air` repo. Written to be picked up cold.
+  `without-hot-air` repo. Written to be picked up cold. As of 2026-08-09, 20
+  pages are revised, including a full recompute of chapter 27's energy plans
+  — but no human read-through of any of them has happened yet. That's the
+  next thing to do, before either more chapters or a launch.
 - Open work is in GitHub issues; `docs/review-queue.md` holds cosmetic notes.
