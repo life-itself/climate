@@ -74,7 +74,10 @@ does not.
   set it site-wide — MDX is stricter and will break pages containing bare `{`
   or `<`. Escape those as `\{` / `\<` on pages that do need MDX.
 - Commit messages: `[scope/N][size]: subject` — e.g. `[content/2][m]: ...`,
-  where N is a rough 1-3 priority and size is `xs`/`s`/`m`/`l`.
+  where N is a rough 1-3 priority and size is `xs`/`s`/`m`/`l`. Scopes in use:
+  `content`, `tooling`, `docs`, and `marketing` (announcement drafts, sharing
+  plans, launch copy — kept separate from `content` so it's easy to filter
+  marketing work out of `git log` from dev/content work).
 
 ## Current work
 
