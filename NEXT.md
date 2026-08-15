@@ -30,6 +30,19 @@ scannable separately from dev/content items.
    link should feed a contributor's claim into `docs/audit.yaml` instead of a
    raw PR.
 
+## Also happened, 2026-08-15 — dev/tooling, not marketing
+
+Flowershow fixed the KaTeX dollar-sign bug (flowershow#1359) within hours by
+disabling single-`$` math site-wide entirely, which had a side effect:
+without-hot-air had 26 genuine LaTeX formulas across 5 technical chapters
+(chap03, chapA, chapB, chapC, chapG) written with single `$`, and they all
+silently stopped rendering the moment the upstream fix deployed —
+`smoke.mjs` caught 3 of them within minutes. Converted all 26 to `$$...$$`,
+verified live, and generalized `verify.sh`'s check accordingly (currency no
+longer needs escaping; genuine single-`$` math is now the thing to catch).
+Filed as a follow-up comment on the same issue so other Flowershow sites with
+pre-existing single-`$` content don't discover this the hard way.
+
 ## Resolved this session, 2026-08-15 — no longer needs anyone
 
 - **The 2021 HN link.** Traced the redirect chain directly: it already lands
