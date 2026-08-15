@@ -193,6 +193,13 @@ read for tone and length before it goes anywhere — it runs long for HN/Reddit,
 which is intentional (see "Venues" below), but should be checked against
 whether it's *too* long for a blog post too.
 
+**Separate, shorter copy for HN and Reddit** is now drafted at
+[`docs/announcement-draft-hn-reddit.md`](announcement-draft-hn-reddit.md) —
+two HN titles (one specific/checkable, one safer — sharing.md's original
+recommendation to test both still stands), a suggested HN first-comment, and
+a full Reddit self-post (title + body, tighter than the lifeitself.org
+version). Also not published anywhere.
+
 1. **One paragraph on what the book was and why it still matters** — MacKay's
    "no more hot air, only physics" method, and why fifteen-plus years on it's
    still the reference a lot of people learned to think about energy from.
@@ -263,16 +270,22 @@ repo, not a launch venue, so the "won't be read" problem doesn't apply to it.
   audiences (technical, numerate, willing to argue specifics), and that's
   exactly the crowd this update is built to survive scrutiny from.
 
-### The 2021 HN link
+### The 2021 HN link — checked, already fine, 2026-08-15
 
-**Recommendation: redirect it.** The 2021 post links to
-`climate.lifeitself.us/without-hot-air/`, which now resolves to this repo's
-project write-up rather than the book. Anyone who follows that old link today
-is looking for the book, not a write-up about a site migration — redirecting
-straight to `withouthotair.org` serves that reader better than an explainer
-page they have to click through. This is a DNS/redirect change, which
-`CLAUDE.md`'s house rules flag as needing a human regardless of how low-risk
-it looks — flagging here rather than doing it.
+**No action needed.** Traced the actual redirect chain for
+`climate.lifeitself.us/without-hot-air/`, the URL the 2021 post links to:
+
+```
+climate.lifeitself.us/without-hot-air/
+  --301--> climate.lifeitself.org/without-hot-air/
+  --308--> withouthotair.org
+  --200--> (the actual book)
+```
+
+It already lands on the book, not an explainer page — whatever redirect
+infrastructure handled the 2021→2026 domain moves already covers this case.
+The concern this section used to raise (readers hitting a dead end or a
+site-migration write-up) doesn't apply. Nothing for a human to do here.
 
 ### Who posts
 
@@ -295,9 +308,9 @@ drafted and tightened from it.
 
 ## Open questions — resolved or still open
 
-- ~~Where should the 2021 HN link land?~~ **Resolved above: redirect to
-  withouthotair.org.** (Still needs a human to actually make the DNS/redirect
-  change.)
+- ~~Where should the 2021 HN link land?~~ **Resolved above, 2026-08-15:
+  already redirects correctly to withouthotair.org, checked directly. No
+  human action needed.**
 - **What venue beyond HN?** Narrowed above to Reddit (specific subs listed) as
   a pre-test venue. Still open: final choice of which subreddit(s), and exact
   posting order/timing between them and HN.
@@ -319,10 +332,16 @@ drafted and tightened from it.
   readers' reactions before it's final.
 - **New: who posts, from which account.** Not addressed in the original stub;
   added above. Rufus's call.
-- **New: is the 2017 "second edition" effort (`titojankowski`'s GitHub repo /
-  Google Group) still around?** Worth a quick check before launch — either a
-  natural collaborator to credit, or useful contrast ("others started this and
-  it didn't ship; here's a finished, sourced pass").
+- ~~Is the 2017 "second edition" effort still around?~~ **Checked, 2026-08-15:
+  no.** [`titojankowski/sustainable_energy_without_the_hot_air`](https://github.com/titojankowski/sustainable_energy_without_the_hot_air)
+  got two commits over three days in April 2017 — an HTML→Markdown conversion
+  with images explicitly left out for licensing reasons — then nothing since;
+  no activity, no merged text revisions, last push 2017-04-13. No Google Group
+  presence found either. Not a collaborator to credit or loop in — it's the
+  useful-contrast case sharing.md flagged as the other possibility: someone
+  else started this and didn't ship. Worth one line in the launch post's
+  "why hasn't this been done before" framing if it needs one, but not a
+  credit or an outreach step.
 
 ## Related issues
 
