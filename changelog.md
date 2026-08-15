@@ -5,6 +5,32 @@ description: What has changed on this site.
 
 Notable changes to this site and to [Without the Hot Air](https://withouthotair.org). Newest first.
 
+## 2026-08-15 — 34 chapters revised, and a new "Has It Held Up?" overview
+
+Since the last entry, the update work on [Without the Hot Air](https://withouthotair.org)
+went from a worked example to most of the book: **34 pages now carry sourced,
+dated updates** to figures that have moved since 2008, each shown as visible
+`<del>`/`<ins>` markup against MacKay's original text, never a silent
+correction — up from the 20 in the previous entry, after a further pass through
+[the audit ledger](https://github.com/life-itself/without-hot-air/blob/main/docs/audit.yaml)'s
+lower-priority claims (LEDs, wave power, defence spending, EV efficiency,
+battery storage, carbon pricing, and more).
+
+**New: [Has It Held Up?](https://withouthotair.org/has-it-held-up)** — not
+another chapter revision, but a synthesis of what the 34 pages of edits add up
+to: where MacKay's numbers moved (solar and wind costs collapsed further and
+faster than almost anyone forecast), where his method held up regardless
+(nuclear's safety case, his skepticism of hydrogen and biofuels), and where the
+world surprised him in both directions. The [/changes](https://withouthotair.org/changes)
+page remains the mechanical, chapter-by-chapter list for anyone who wants the
+detail underneath it.
+
+**Also fixed:** a rendering bug where prose mentioning two dollar amounts in
+the same paragraph (e.g. "$61 per MWh ... $76/MWh") got silently parsed as
+math by the site's KaTeX pipeline, swallowing the text between them —
+affected both new content and some of MacKay's own 2008 text. Filed upstream:
+[flowershow/flowershow#1359](https://github.com/flowershow/flowershow/issues/1359).
+
 ## 2026-08-08 — New foundations, and a few things quietly unbroken
 
 This site is now a plain markdown knowledge base, published with

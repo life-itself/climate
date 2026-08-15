@@ -1,16 +1,20 @@
 ---
 title: Sharing
 created: 2026-08-08
-updated: 2026-08-09
-status: draft plan
+updated: 2026-08-15
+status: draft plan — read-through gate cleared, post drafted
 ---
 
 # Sharing
 
-**Status: draft plan.** Turned from a stub into an actual plan on 2026-08-09,
-once the update work this was gated on had something real to show. Still a
-draft — the copy below is a starting point for editing, not something to post.
-**Nothing in this document has been published anywhere.**
+**Status: draft plan.** Turned from a stub into an actual plan on 2026-08-09.
+Updated 2026-08-15: Rufus read `/changes` and confirmed the revised chapters
+look good — the read-through gate below is now treated as cleared (see "Where
+things stand now"). A full draft of the Job 2 launch post now exists at
+`docs/announcement-draft-lifeitself.md` in this repo, written for
+**lifeitself.org**, not the climate sub-site (see "Where should this be
+posted?" below — Rufus's own call, resolved 2026-08-15). Still a draft —
+**nothing has been published anywhere.**
 
 Two different jobs that keep getting conflated:
 
@@ -71,35 +75,43 @@ a strong hand. It is also a hand you can only play well once every few years.
 ## Where things stand now
 
 This section is the reason this document could become a plan instead of
-staying a stub. As of 2026-08-09:
+staying a stub. As of 2026-08-15:
 
-- **20 pages have been revised** under the `<del>`/`<ins>` + "Updates, 2026"
+- **34 pages have been revised** under the `<del>`/`<ins>` + "Updates, 2026"
   mechanism described in `without-hot-air`'s `docs/plans/2026-08-08-revising-the-book.md`:
   solar (chap06, chapD), wind (chap04, chapB, chap10), cars/EVs (chap03,
   chapA), nuclear (chap24), fossil fuels (chap23), the five energy plans for
   Britain (chap27) and the world plans (chap30) — **fully re-derived, not just
   annotated, including a real substitute for "clean coal" now that it doesn't
-  exist** — plus a further sweep of chap01, chap11, chap14, chap18, chap25,
-  chap28, chap32, chapI, and author.md.
+  exist** — plus two further sweeps of lower-priority chapters (chap01, 02,
+  09, 11, 12, 14, 16–21, 25, 26, 28, 29, 31, 32, chapE, chapF, chapI, chapJ,
+  author.md, preface.md).
 - Every change is visibly marked, dated, and cited to a primary source
   (IEA, IRENA, Lazard, DESNZ, IAEA, World Nuclear Association, and similar) —
   exactly the "show the sourcing" approach [without-hot-air#1](https://github.com/life-itself/without-hot-air/issues/1)
   says the launch depends on.
-- **The human read-through has not happened.** Every one of those 20 pages
-  shipped on an explicit "keep going, don't pause for review" instruction, and
-  `docs/plans/2026-08-08-revising-the-book.md` has flagged the missing
-  read-through as open at every single checkpoint since chapter 6 went live.
-  This is now the single largest risk to a launch, not the amount of update
-  work done.
+- **New: [Has It Held Up?](https://withouthotair.org/has-it-held-up)** — a
+  synthesis essay, not another chapter revision, answering the launch's core
+  question directly: what's genuinely changed since 2008, where MacKay's
+  numbers moved, where his method held up regardless, and what he couldn't
+  have seen coming. Built entirely from citations already gathered for the
+  34 revised pages above.
+- **The human read-through: cleared, 2026-08-15.** Rufus read `/changes` (the
+  mechanical digest of every edit) and confirmed it looks good. This document
+  previously flagged the missing read-through as the single largest launch
+  risk at every checkpoint since chapter 6 went live — that gate is now
+  treated as satisfied, on Rufus's own confirmation.
+- **Also found and fixed, 2026-08-14:** a live rendering bug (Flowershow's
+  KaTeX pipeline silently mis-parsing prose that mentions two dollar amounts
+  as math) that had been mangling both new content and some of MacKay's own
+  2008 text. Filed upstream: [flowershow/flowershow#1359](https://github.com/flowershow/flowershow/issues/1359).
+  Not launch-relevant on its own, but worth knowing the site was quietly
+  broken in a few places until this pass found it.
 
-**What this changes about the plan:** the old sequencing was "wait for the
-update work, then launch." The update work is no longer the bottleneck — the
-review is. Launching 20 AI-drafted pages of a well-loved, widely-cited book to
-an audience that includes domain experts, without a single human read-through,
-is a real risk: on the numbers (an audit or arithmetic slip lands in public,
-in David MacKay's name, under a project with real reputational stakes), and
-credibility-wise (the first HN comment to spot an unreviewed error undermines
-"the sourcing is the whole game" as a defence).
+**What this changes about the plan:** the read-through gate that blocked
+"Job 2" below is cleared. The launch post itself is now drafted (see below) —
+what's left is genuinely Rufus's call: does the draft read right, which venue
+order, and when.
 
 ## The strategic point
 
@@ -169,7 +181,17 @@ The second is more specific and more likely to survive HN's skepticism,
 because it makes a checkable claim rather than a vibe. Recommend testing both
 with a few trusted early readers before deciding.
 
-### Post body — draft skeleton
+### Post body — full draft written, 2026-08-15
+
+The skeleton below shaped it; the actual draft is now written in full at
+[`docs/announcement-draft-lifeitself.md`](announcement-draft-lifeitself.md)
+in this repo — titled "Has 'Without the Hot Air' held up?", built around the
+five beats below plus a direct link to the new
+[Has It Held Up?](https://withouthotair.org/has-it-held-up) synthesis page as
+the piece that actually answers the question. Not published anywhere. Needs a
+read for tone and length before it goes anywhere — it runs long for HN/Reddit,
+which is intentional (see "Venues" below), but should be checked against
+whether it's *too* long for a blog post too.
 
 1. **One paragraph on what the book was and why it still matters** — MacKay's
    "no more hot air, only physics" method, and why fifteen-plus years on it's
@@ -211,6 +233,17 @@ read-through step above is for. Publishing this paragraph without having done
 the read-through first is the single easiest way to turn this from an asset
 into a liability, per the issue's own framing.
 
+### Where should this be posted? — resolved 2026-08-15
+
+**lifeitself.org, not climate.lifeitself.org.** Rufus's own read, when asked
+directly: he's genuinely unsure whether Life Itself content like this belongs
+on lifeitself.org or a personal site (rufuspollock.com), and that's a broader,
+separate question worth settling on its own — but for *this* piece
+specifically, climate.lifeitself.org is out, because "no one will read it
+there." The changelog entry (Job 1, above) still belongs on the climate site's
+own `/changelog` regardless — that's a record for people already watching the
+repo, not a launch venue, so the "won't be read" problem doesn't apply to it.
+
 ### Venues
 
 - **HN primary**, as in 2021. `Show HN` is probably wrong (this isn't a tool
@@ -250,14 +283,15 @@ questions in the comments. Rufus's own call.
 
 ### Timing
 
-**Not yet.** The update work is far enough along to launch on; the
-read-through isn't done. Recommend: complete the chapter-by-chapter
-read-through first (see "Where things stand now" above), fix what it finds,
-*then* pick a launch date. Once ready, there's no strong reason to wait for a
+**Gate cleared, still Rufus's call on the date.** The read-through that
+previously blocked this is done (see "Where things stand now"). Once the
+lifeitself.org draft reads right, there's no strong reason to wait for a
 particular day — the 2021 post went out on a Sunday and did fine — but
 avoiding major news-cycle competition (big tech launches, major climate
 summits dominating the news that week) is worth a quick calendar check before
-posting.
+posting. Recommend: publish the lifeitself.org piece first (lower stakes, no
+comment-section scrutiny), then HN/Reddit once that copy is separately
+drafted and tightened from it.
 
 ## Open questions — resolved or still open
 
