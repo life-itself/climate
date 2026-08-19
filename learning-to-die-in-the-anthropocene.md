@@ -62,8 +62,8 @@ The paradox the user flagged: the same knowledge and intelligence that lets us m
 
 From the book's bibliography — three works worth tracking down:
 
-- **Mike Hulme**, *Why We Disagree About Climate Change: Understanding Controversy, Inaction and Opportunity*. Cambridge University Press, 2009. ISBN 978-0521727327. Explores why climate change is so contested across science, economics, ethics, psychology and politics — argues climate change is less a problem to solve than an idea that reveals different beliefs about how to live. Selected as one of *The Economist*'s science and technology Books of the Year 2009. **(to read)**
+- **Mike Hulme**, *Why We Disagree About Climate Change: Understanding Controversy, Inaction and Opportunity*. Cambridge University Press, 2009. ISBN 978-0521727327.
 
-- **Kari Marie Norgaard**, *Living in Denial: Climate Change Emotions in Everyday Life*. MIT Press, 2011. ethnographic study of how a Norwegian community processes — or doesn't process — climate change in everyday life; focuses on the emotions and social mechanisms behind denial rather than individual ignorance. **(to read)**
+- **Kari Marie Norgaard**, *Living in Denial: Climate Change Emotions in Everyday Life*. MIT Press, 2011.
 
-- **Vaclav Smil**, *Global Catastrophes and Trends: The Next 50 Years*. MIT Press, 2008. Smil's characteristic sweep across possible catastrophes and long-term trends (demographic, environmental, economic) — useful ballast against both alarmism and complacency. **(to read)**
+- **Vaclav Smil**, *Global Catastrophes and Trends: The Next 50 Years*. MIT Press, 2008.
